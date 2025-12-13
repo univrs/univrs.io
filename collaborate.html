@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Join the Univrs.io movement — contribute as a developer, economist, community organizer, or policy advocate to build regenerative infrastructure.">
+  
+  <title>Collaborate — Univrs.io</title>
+  
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍄</text></svg>">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="nav">
+    <div class="nav__inner">
+      <a href="/" class="nav__logo">
+        <span class="nav__logo-icon">🍄</span>
+        Univrs.io
+      </a>
+      
+      <button class="nav__toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      
+      <div class="nav__menu">
+        <ul class="nav__links">
+          <li><a href="/" class="nav__link">Home</a></li>
+          <li><a href="vision.html" class="nav__link">Vision</a></li>
+          <li><a href="technology.html" class="nav__link">Technology</a></li>
+          <li><a href="evidence.html" class="nav__link">Evidence</a></li>
+          <li><a href="roadmap.html" class="nav__link">Roadmap</a></li>
+          <li><a href="collaborate.html" class="nav__link active">Collaborate</a></li>
+        </ul>
+      </div>
+      
+      <button class="theme-toggle" aria-label="Toggle theme">🌙</button>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <section class="hero" style="min-height: 60vh;">
+    <div class="hero__content">
+      <p class="hero__tagline">Join the Movement</p>
+      <h1 class="hero__title">
+        Build <span class="text-gradient">regenerative infrastructure</span><br>
+        with us
+      </h1>
+      <p class="hero__subtitle">
+        We're seeking developers, economists, community organizers, and policy advocates 
+        to help create systems that serve people and planet. Every skill has a role.
+      </p>
+    </div>
+  </section>
+
+  <!-- Contribution Pathways -->
+  <section class="container">
+    <div class="section-header reveal">
+      <h2>Ways to Contribute</h2>
+      <p>Different skills, same mission. Find your path.</p>
+    </div>
+    
+    <div class="grid grid--2 stagger-children" style="gap: var(--space-xl);">
+      <div class="card">
+        <div class="card__icon">💻</div>
+        <h3 class="card__title">Technical Development</h3>
+        <p class="card__text">
+          Build the infrastructure. We need engineers experienced with Rust, distributed systems, 
+          Holochain, and cloud-native technologies. Contributions range from core protocol work 
+          to documentation and testing.
+        </p>
+        <div style="margin-top: var(--space-md); padding-top: var(--space-md); border-top: 1px solid var(--border-subtle);">
+          <p style="font-size: var(--text-sm); color: var(--text-secondary); margin-bottom: var(--space-sm);">Skills needed:</p>
+          <div style="display: flex; flex-wrap: wrap; gap: var(--space-xs);">
+            <span class="tag">Rust</span>
+            <span class="tag">Holochain</span>
+            <span class="tag">IPFS</span>
+            <span class="tag">Kubernetes</span>
+            <span class="tag">WebAssembly</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="card">
+        <div class="card__icon">📊</div>
+        <h3 class="card__title">Economic Modeling</h3>
+        <p class="card__text">
+          Design the systems. We need economists and researchers to model mutual credit dynamics, 
+          design governance mechanisms, analyze real-world implementations, and develop metrics 
+          for regenerative outcomes.
+        </p>
+        <div style="margin-top: var(--space-md); padding-top: var(--space-md); border-top: 1px solid var(--border-subtle);">
+          <p style="font-size: var(--text-sm); color: var(--text-secondary); margin-bottom: var(--space-sm);">Skills needed:</p>
+          <div style="display: flex; flex-wrap: wrap; gap: var(--space-xs);">
+            <span class="tag tag--gold">Economics</span>
+            <span class="tag tag--gold">Game Theory</span>
+            <span class="tag tag--gold">Data Analysis</span>
+            <span class="tag tag--gold">Research</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="card">
+        <div class="card__icon">🌱</div>
+        <h3 class="card__title">Community Organizing</h3>
+        <p class="card__text">
+          Deploy the tools. We need organizers to pilot mutual credit systems in real communities, 
+          facilitate governance processes, document learnings, and support other communities 
+          starting their journeys.
+        </p>
+        <div style="margin-top: var(--space-md); padding-top: var(--space-md); border-top: 1px solid var(--border-subtle);">
+          <p style="font-size: var(--text-sm); color: var(--text-secondary); margin-bottom: var(--space-sm);">Skills needed:</p>
+          <div style="display: flex; flex-wrap: wrap; gap: var(--space-xs);">
+            <span class="tag tag--purple">Facilitation</span>
+            <span class="tag tag--purple">Organizing</span>
+            <span class="tag tag--purple">Education</span>
+            <span class="tag tag--purple">Documentation</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="card">
+        <div class="card__icon">🏛️</div>
+        <h3 class="card__title">Policy & Advocacy</h3>
+        <p class="card__text">
+          Change the system. We need advocates to engage policymakers, draft legislation, 
+          build coalitions with digital rights organizations, and make the case for 
+          publicly-funded cloud infrastructure.
+        </p>
+        <div style="margin-top: var(--space-md); padding-top: var(--space-md); border-top: 1px solid var(--border-subtle);">
+          <p style="font-size: var(--text-sm); color: var(--text-secondary); margin-bottom: var(--space-sm);">Skills needed:</p>
+          <div style="display: flex; flex-wrap: wrap; gap: var(--space-xs);">
+            <span class="tag">Policy Writing</span>
+            <span class="tag">Government Relations</span>
+            <span class="tag">Communications</span>
+            <span class="tag">Legal</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Immediate Tasks -->
+  <section class="container">
+    <div class="section-header reveal">
+      <span class="tag">Open Tasks</span>
+      <h2 class="mt-md">Actionable Work</h2>
+      <p>Concrete tasks you can start today.</p>
+    </div>
+    
+    <div class="grid grid--3 stagger-children">
+      <!-- Research Tasks -->
+      <div class="card">
+        <span class="tag" style="font-size: 10px;">Research</span>
+        <h4 class="card__title mt-sm">Cloud Landscape Report</h4>
+        <p class="card__text" style="font-size: var(--text-sm);">
+          Prepare detailed analysis of existing public cloud services, government cloud initiatives 
+          like FedRAMP, and regulatory environment.
+        </p>
+      </div>
+      
+      <div class="card">
+        <span class="tag" style="font-size: 10px;">Research</span>
+        <h4 class="card__title mt-sm">Mutual Credit Case Studies</h4>
+        <p class="card__text" style="font-size: var(--text-sm);">
+          Document additional real-world mutual credit implementations beyond Sardex and WIR. 
+          Analyze success factors and failure modes.
+        </p>
+      </div>
+      
+      <div class="card">
+        <span class="tag" style="font-size: 10px;">Research</span>
+        <h4 class="card__title mt-sm">Legal Framework Analysis</h4>
+        <p class="card__text" style="font-size: var(--text-sm);">
+          Analyze current laws and policies related to alternative currencies, cooperatives, 
+          and public technology infrastructure.
+        </p>
+      </div>
+      
+      <!-- Technical Tasks -->
+      <div class="card">
+        <span class="tag tag--gold" style="font-size: 10px;">Technical</span>
+        <h4 class="card__title mt-sm">Cyclos Integration Guide</h4>
+        <p class="card__text" style="font-size: var(--text-sm);">
+          Create step-by-step documentation for deploying Cyclos 4 Communities for small-scale 
+          mutual credit pilots.
+        </p>
+      </div>
+      
+      <div class="card">
+        <span class="tag tag--gold" style="font-size: 10px;">Technical</span>
+        <h4 class="card__title mt-sm">Holochain hApp Prototype</h4>
+        <p class="card__text" style="font-size: var(--text-sm);">
+          Build proof-of-concept Holochain application demonstrating basic mutual credit functionality.
+        </p>
+      </div>
+      
+      <div class="card">
+        <span class="tag tag--gold" style="font-size: 10px;">Technical</span>
+        <h4 class="card__title mt-sm">Documentation Site</h4>
+        <p class="card__text" style="font-size: var(--text-sm);">
+          Improve book.univrs.io with better organization, search functionality, and 
+          contributor-friendly structure.
+        </p>
+      </div>
+      
+      <!-- Advocacy Tasks -->
+      <div class="card">
+        <span class="tag tag--purple" style="font-size: 10px;">Advocacy</span>
+        <h4 class="card__title mt-sm">Economic Impact Document</h4>
+        <p class="card__text" style="font-size: var(--text-sm);">
+          Create detailed document outlining economic impact of public cloud infrastructure 
+          for job creation and innovation.
+        </p>
+      </div>
+      
+      <div class="card">
+        <span class="tag tag--purple" style="font-size: 10px;">Advocacy</span>
+        <h4 class="card__title mt-sm">Stakeholder Mapping</h4>
+        <p class="card__text" style="font-size: var(--text-sm);">
+          Identify and map potential allies: government officials, technology organizations, 
+          community groups, academic institutions.
+        </p>
+      </div>
+      
+      <div class="card">
+        <span class="tag tag--purple" style="font-size: 10px;">Advocacy</span>
+        <h4 class="card__title mt-sm">Policy White Paper</h4>
+        <p class="card__text" style="font-size: var(--text-sm);">
+          Draft policy proposal for public cloud infrastructure, suitable for presentation 
+          to government officials.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Community Guidelines -->
+  <section class="container container--narrow">
+    <div class="reveal">
+      <h2>Community <span class="text-gradient">Culture</span></h2>
+      <div class="prose mt-lg">
+        <p>
+          We're building more than software—we're building a community. These values guide how we work together:
+        </p>
+      </div>
+      
+      <div class="grid grid--2 mt-xl" style="gap: var(--space-md);">
+        <div class="card" style="padding: var(--space-md);">
+          <h4 style="font-size: var(--text-base);">🌱 Regenerative Relationships</h4>
+          <p style="font-size: var(--text-sm); color: var(--text-secondary); margin: 0;">Every interaction should leave people better off than before.</p>
+        </div>
+        
+        <div class="card" style="padding: var(--space-md);">
+          <h4 style="font-size: var(--text-base);">🔍 Radical Transparency</h4>
+          <p style="font-size: var(--text-sm); color: var(--text-secondary); margin: 0;">Open about our stage, challenges, and decision-making processes.</p>
+        </div>
+        
+        <div class="card" style="padding: var(--space-md);">
+          <h4 style="font-size: var(--text-base);">🤝 Inclusive Participation</h4>
+          <p style="font-size: var(--text-sm); color: var(--text-secondary); margin: 0;">Value contributions of all kinds. Technical and non-technical skills both essential.</p>
+        </div>
+        
+        <div class="card" style="padding: var(--space-md);">
+          <h4 style="font-size: var(--text-base);">📚 Learning Together</h4>
+          <p style="font-size: var(--text-sm); color: var(--text-secondary); margin: 0;">Share knowledge freely. Celebrate questions as much as answers.</p>
+        </div>
+        
+        <div class="card" style="padding: var(--space-md);">
+          <h4 style="font-size: var(--text-base);">⚖️ Horizontal Governance</h4>
+          <p style="font-size: var(--text-sm); color: var(--text-secondary); margin: 0;">Decisions made by those affected. No hidden hierarchies.</p>
+        </div>
+        
+        <div class="card" style="padding: var(--space-md);">
+          <h4 style="font-size: var(--text-base);">🎯 Pragmatic Idealism</h4>
+          <p style="font-size: var(--text-sm); color: var(--text-secondary); margin: 0;">Bold vision grounded in practical action. Ideas must ship.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tools We Use -->
+  <section class="container">
+    <div class="section-header reveal">
+      <h2>How We Coordinate</h2>
+      <p>Platforms we use to work together.</p>
+    </div>
+    
+    <div class="grid grid--4 stagger-children" style="gap: var(--space-md);">
+      <div class="card" style="padding: var(--space-md); text-align: center;">
+        <div style="font-size: 32px; margin-bottom: var(--space-sm);">📂</div>
+        <h4 style="font-size: var(--text-base); margin-bottom: var(--space-xs);">GitHub</h4>
+        <p style="font-size: var(--text-sm); color: var(--text-secondary); margin: 0;">Code, issues, discussions</p>
+      </div>
+      
+      <div class="card" style="padding: var(--space-md); text-align: center;">
+        <div style="font-size: 32px; margin-bottom: var(--space-sm);">💬</div>
+        <h4 style="font-size: var(--text-base); margin-bottom: var(--space-xs);">Discord</h4>
+        <p style="font-size: var(--text-sm); color: var(--text-secondary); margin: 0;">Real-time communication</p>
+      </div>
+      
+      <div class="card" style="padding: var(--space-md); text-align: center;">
+        <div style="font-size: 32px; margin-bottom: var(--space-sm);">📋</div>
+        <h4 style="font-size: var(--text-base); margin-bottom: var(--space-xs);">Notion</h4>
+        <p style="font-size: var(--text-sm); color: var(--text-secondary); margin: 0;">Documentation, wikis</p>
+      </div>
+      
+      <div class="card" style="padding: var(--space-md); text-align: center;">
+        <div style="font-size: 32px; margin-bottom: var(--space-sm);">🗳️</div>
+        <h4 style="font-size: var(--text-base); margin-bottom: var(--space-xs);">Loomio</h4>
+        <p style="font-size: var(--text-sm); color: var(--text-secondary); margin: 0;">Collective decisions</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact CTA -->
+  <section class="container">
+    <div class="reveal">
+      <div class="evidence-card" style="max-width: none; text-align: center;">
+        <h2>Ready to <span class="text-gradient">Get Started</span>?</h2>
+        <p style="font-size: var(--text-lg); max-width: 600px; margin: var(--space-md) auto;">
+          Reach out to introduce yourself, share your interests, and find where you can contribute.
+          We're excited to meet you.
+        </p>
+        <div class="hero__cta mt-lg" style="justify-content: center;">
+          <a href="mailto:ardeshir.org@gmail.com" class="btn btn--primary">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style="margin-right: 8px;"><path d="M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-11.817l10 8.104 10-8.104v11.817h-20z"/></svg>
+            Email Us
+          </a>
+          <a href="https://github.com/ArdeshirV" target="_blank" class="btn btn--outline">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style="margin-right: 8px;"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+            GitHub
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <div class="footer__logo">🍄 Univrs.io</div>
+          <p class="footer__desc">Building regenerative digital infrastructure through mycelial economics. Systems of the people, by the people, for the people.</p>
+        </div>
+        
+        <div>
+          <h4 class="footer__title">Learn</h4>
+          <ul class="footer__links">
+            <li><a href="vision.html">Vision & Mission</a></li>
+            <li><a href="technology.html">Technology</a></li>
+            <li><a href="evidence.html">Real-World Evidence</a></li>
+            <li><a href="resources.html">Resources</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="footer__title">Engage</h4>
+          <ul class="footer__links">
+            <li><a href="roadmap.html">Roadmap</a></li>
+            <li><a href="collaborate.html">Collaborate</a></li>
+            <li><a href="https://book.univrs.io" target="_blank">Documentation ↗</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="footer__title">Ecosystem</h4>
+          <ul class="footer__links">
+            <li><a href="https://cryptosaint.io" target="_blank">CryptoSaint.io ↗</a></li>
+            <li><a href="https://holochain.org" target="_blank">Holochain ↗</a></li>
+            <li><a href="https://valueflo.ws" target="_blank">ValueFlows ↗</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer__bottom">
+        <p>© 2025 Univrs.io — Open source, open future</p>
+        <div class="footer__social">
+          <a href="https://github.com/ArdeshirV" target="_blank" aria-label="GitHub">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+          </a>
+          <a href="mailto:ardeshir.org@gmail.com" aria-label="Email">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-11.817l10 8.104 10-8.104v11.817h-20z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
