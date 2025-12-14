@@ -272,12 +272,11 @@ section {
 .nav__logo-icon {
   width: 32px;
   height: 32px;
-  background: linear-gradient(135deg, var(--glow-cyan), var(--glow-gold));
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 14px;
+  overflow: hidden;
 }
 
 .nav__links {

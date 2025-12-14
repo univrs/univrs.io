@@ -1,4 +1,4 @@
-# 🍄 Univrs.io
+# Univrs.io
 
 **Regenerative Digital Infrastructure through Mycelial Economics**
 
