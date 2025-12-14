@@ -121,3 +121,122 @@ MIT License — See [LICENSE](LICENSE) for details.
 *"Every person deserves to have their data stored safely and not owned by anyone else."*
 
 🍄 **Building infrastructure of the people, by the people, for the people.**
+
+This is a fantastic find for the [Univrs.io](http://Univrs.io) vision. PlanetServe addresses exactly the infrastructure scaling problem you’ve been working on, and its architecture has remarkable alignment with mycelial economics principles. Let me break this down and map the integration points.
+
+## PlanetServe: Core Innovation Summary
+
+PlanetServe is a **decentralized overlay network for LLM serving** that solves the scalability bottleneck facing small organizations and researchers who can’t afford or access centralized cloud infrastructure. The key insight is treating idle computing resources across organizations as a shared commons.
+
+**Four Core Research Problems Solved:**
+
+1. **Overlay Network Organization** - Dynamic user nodes form peer networks, model nodes contribute GPU resources, and a verification committee ensures quality through BFT consensus
+1. **Anonymous Communication** - A novel hybrid of Onion routing and Secure Information Dispersal Algorithm (S-IDA) that splits messages into “cloves” across multiple paths, achieving both privacy and resilience
+1. **Overlay Forwarding via Hash-Radix Trees** - A distributed data structure for KV cache sharing across nodes without centralized coordination, reducing latency 40-50%
+1. **Reputation-Based Verification** - Sampling-based verification using perplexity scoring to detect dishonest model nodes, with reputation scores that decay faster for bad behavior than they accumulate for good behavior
+
+**Performance Results:**
+
+- 50%+ latency reduction compared to non-sharing baselines
+- 95%+ delivery success rate even with 3% node failure rates
+- Confidential Computing adds only ~1ms overhead
+- Works across consumer and datacenter GPUs
+
+-----
+
+## Alignment with Mycelial Economics
+
+The convergence with your [Univrs.io](http://Univrs.io) vision is striking:
+
+|PlanetServe Mechanism                               |Mycelial Economics Equivalent                  |
+|----------------------------------------------------|-----------------------------------------------|
+|Reputation scores based on contribution quality     |Credit creation through verified contribution  |
+|Resources flow to nodes with available capacity     |Abundance-based distribution patterns          |
+|No central scheduler - emergent coordination        |Decentralized coordination without hierarchy   |
+|Verification committee with BFT consensus           |Transparent, auditable governance algorithms   |
+|Contribution credit proportional to resources shared|Mathematical reward for ecosystem participation|
+
+-----
+
+## Proposed Integration into Univrs.io/RustOrchestration
+
+### 1. **Extend StateStore with PlanetServe’s Reputation Model**
+
+Your existing `StateStore` trait architecture can incorporate their reputation scoring:
+
+```rust
+pub trait ReputationStore: StateStore {
+    async fn update_reputation(
+        &self,
+        node_id: &NodeId,
+        epoch: Epoch,
+        credit_score: f64,  // Normalized perplexity from verification
+    ) -> Result<ReputationScore, StoreError>;
+    
+    async fn apply_punishment(
+        &self,
+        node_id: &NodeId,
+        window: &[f64],  // Sliding window of scores
+        gamma: f64,      // Punishment threshold
+    ) -> Result<ReputationScore, StoreError>;
+}
+```
+
+Their formula: `R(T) = α·R(T-1) + β·C(T)` with asymmetric punishment maps directly to mycelial credit scoring where reputation influences resource allocation priority.
+
+### 2. **Hash-Radix Tree for Workload Distribution**
+
+The HR-tree data structure solves a problem you’ll face with distributed container scheduling - how to route workloads to nodes with relevant cached state without centralized knowledge. Adaptation for RustOrchestration:
+
+- **Instead of KV cache prefixes** → Container image layers and configuration states
+- **Instead of prompt matching** → Workload affinity matching
+- **Load Balance Factor** → Already aligns with your MutualCreditScheduler concept
+
+### 3. **S-IDA for Secure Resource Coordination**
+
+Their (n,k) threshold scheme where k-of-n cloves reconstruct messages could secure:
+
+- Credit transactions between nodes
+- Sensitive workload specifications
+- Ecological impact data that shouldn’t be visible to individual nodes
+
+### 4. **Verification Committee as Governance Layer**
+
+Their Tendermint-based BFT committee provides a template for:
+
+- Auditing node behavior against protocol expectations
+- Maintaining canonical reputation/credit state
+- Preventing Sybil attacks through credential verification
+
+-----
+
+## Key Technical Learnings to Apply
+
+**What worked for them:**
+
+- Reputation punishment >> reward asymmetry (ensures consistent good behavior)
+- Delta updates for distributed state (vs. full broadcasts) - 10x reduction in network cost
+- Session affinity for consecutive requests (preserves cache benefits)
+- γ = 1/5 punishment threshold detected dishonest nodes within 5 epochs
+
+**What they explicitly defer:**
+
+- Model partitioning across nodes (complementary research)
+- Blockchain integration (they use lighter BFT but note blockchain adds transparency/auditability)
+- Non-text modalities
+
+-----
+
+## Strategic Implications for Univrs.io
+
+PlanetServe validates several of your core architectural bets:
+
+1. **Rust for distributed systems** - Their entire prototype is Rust-based, confirming performance/safety alignment
+1. **Contribution-based resource access** - Their incentive model where contribution credit determines what you can deploy is essentially mutual credit for compute
+1. **Decentralized verification is tractable** - 45+ verifications/minute on high-end hardware, 20+ on standard - sufficient for production networks
+1. **Consumer hardware is viable** - They explicitly show 20x cost reduction vs. AWS using consumer GPUs
+
+The paper also provides academic validation language you could incorporate into the a16z pitch - this is published research (arXiv, appears headed for a systems venue) demonstrating that decentralized AI infrastructure achieves competitive performance.
+
+-----
+
