@@ -121,11 +121,83 @@
           </div>
         </div>
         <p class="tech-card__desc">
-          Quantum-safe, end-to-end encrypted overlay networks that explicitly mirror natural mycelial structures. Currently 
-          supporting ~100,000 users per network with automatic load balancing and optimized data pipelines for decentralized 
+          Quantum-safe, end-to-end encrypted overlay networks that explicitly mirror natural mycelial structures. Currently
+          supporting ~100,000 users per network with automatic load balancing and optimized data pipelines for decentralized
           community operations.
         </p>
         <a href="https://threefold.io" target="_blank" class="btn btn--ghost">threefold.io →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Scaling Layer -->
+  <section class="container">
+    <div class="section-header reveal">
+      <span class="tag tag--purple">Scaling Layer</span>
+      <h2 class="mt-md">PlanetServe Integration</h2>
+      <p>Decentralized infrastructure for scalable, privacy-preserving distributed computing based on cutting-edge research.</p>
+    </div>
+
+    <div class="tech-grid stagger-children">
+      <div class="tech-card">
+        <div class="tech-card__header">
+          <div class="tech-card__icon">⭐</div>
+          <div>
+            <div class="tech-card__name">Reputation Scoring</div>
+            <div class="tech-card__category">Trust Infrastructure</div>
+          </div>
+        </div>
+        <p class="tech-card__desc">
+          Asymmetric reward/punishment system that incentivizes honest behavior. Uses sliding window analysis with
+          the formula R(T) = α·R(T-1) + β·C(T) where punishment factors apply exponentially for repeated violations.
+          Nodes below trust threshold are automatically excluded from resource allocation.
+        </p>
+      </div>
+
+      <div class="tech-card">
+        <div class="tech-card__header">
+          <div class="tech-card__icon">🌳</div>
+          <div>
+            <div class="tech-card__name">Hash-Radix Tree (HR-Tree)</div>
+            <div class="tech-card__category">Workload Distribution</div>
+          </div>
+        </div>
+        <p class="tech-card__desc">
+          Distributed data structure using 8-bit hash fingerprints for efficient content-based routing.
+          Delta synchronization reduces network overhead by 10x compared to full broadcasts. Load-balanced
+          node selection ensures optimal resource utilization across the network.
+        </p>
+      </div>
+
+      <div class="tech-card">
+        <div class="tech-card__header">
+          <div class="tech-card__icon">🔐</div>
+          <div>
+            <div class="tech-card__name">S-IDA Anonymous Communication</div>
+            <div class="tech-card__category">Privacy Layer</div>
+          </div>
+        </div>
+        <p class="tech-card__desc">
+          Secure Information Dispersal Algorithm combining AES-256-GCM encryption, Rabin's IDA for message splitting,
+          and Shamir's Secret Sharing for key distribution. Messages split into n cloves where only k are needed for
+          reconstruction, ensuring privacy even if some relay nodes are compromised.
+        </p>
+      </div>
+
+      <div class="tech-card">
+        <div class="tech-card__header">
+          <div class="tech-card__icon">🗳️</div>
+          <div>
+            <div class="tech-card__name">BFT Verification Committee</div>
+            <div class="tech-card__category">Consensus Layer</div>
+          </div>
+        </div>
+        <p class="tech-card__desc">
+          Tendermint-based Byzantine Fault Tolerant consensus for reputation updates. VRF leader selection,
+          two-phase voting (Pre-Vote → Pre-Commit), and 2n/3+1 threshold ensure consistent reputation scores
+          across all nodes. Challenge prompts verify node behavior through perplexity scoring.
+        </p>
+        <a href="https://arxiv.org/abs/2504.20101" target="_blank" class="btn btn--ghost">Research Paper →</a>
       </div>
     </div>
   </section>
@@ -328,19 +400,24 @@
       <h2>How It All <span class="text-gradient">Fits Together</span></h2>
       <div class="prose mt-lg">
         <p>
-          These aren't isolated tools—they're layers of a coherent stack. <strong>Holochain</strong> provides the 
-          agent-centric foundation where each participant maintains sovereignty. <strong>hREA</strong> and 
-          <strong>ValueFlows</strong> give us the vocabulary to describe economic relationships. <strong>Cyclos</strong> 
+          These aren't isolated tools—they're layers of a coherent stack. <strong>Holochain</strong> provides the
+          agent-centric foundation where each participant maintains sovereignty. <strong>hREA</strong> and
+          <strong>ValueFlows</strong> give us the vocabulary to describe economic relationships. <strong>Cyclos</strong>
           or <strong>Credit Commons</strong> handle the actual currency mechanics.
         </p>
         <p>
-          <strong>Loomio</strong> and <strong>Decidim</strong> enable democratic governance of these systems. 
-          <strong>Hylo</strong> and <strong>IoT sensors</strong> connect economic flows to ecological health. 
+          <strong>Loomio</strong> and <strong>Decidim</strong> enable democratic governance of these systems.
+          <strong>Hylo</strong> and <strong>IoT sensors</strong> connect economic flows to ecological health.
           <strong>IPFS</strong> and <strong>ThreeFold</strong> provide the distributed storage and networking.
         </p>
         <p>
-          The result? Economic systems that automatically redistribute resources based on community health, 
-          adapt to changing conditions, and strengthen through cooperative relationships—just like mycelial 
+          <strong>PlanetServe integration</strong> solves the scaling challenge—reputation scoring ensures honest
+          behavior, HR-Tree routing optimizes workload distribution, and S-IDA protects transaction privacy.
+          BFT verification committees maintain consensus across the network.
+        </p>
+        <p>
+          The result? Economic systems that automatically redistribute resources based on community health,
+          adapt to changing conditions, and strengthen through cooperative relationships—just like mycelial
           networks in a healthy forest.
         </p>
       </div>
@@ -397,6 +474,7 @@
           <li>Credit Commons Protocol federation</li>
           <li>Multi-tier Decidim installations</li>
           <li>Holochain + hREA integration</li>
+          <li>PlanetServe scaling layer</li>
           <li>IoT sensor networks</li>
         </ul>
         <p class="card__text mt-md" style="font-size: var(--text-sm);">

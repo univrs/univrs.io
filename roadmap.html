@@ -213,6 +213,55 @@
     </div>
   </section>
 
+  <!-- Technical Track: PlanetServe Integration -->
+  <section class="container">
+    <div class="reveal">
+      <div class="section-header" style="text-align: left;">
+        <span class="tag" style="background: linear-gradient(135deg, var(--glow-cyan), var(--spore-purple));">Technical Track</span>
+        <h2 class="mt-md">PlanetServe Integration <span style="color: var(--text-secondary); font-weight: 400;">— Scaling Infrastructure</span></h2>
+      </div>
+
+      <div class="timeline mt-xl">
+        <div class="timeline__item">
+          <div class="timeline__phase">Weeks 1-2</div>
+          <h4 class="timeline__title">Reputation Scoring System</h4>
+          <div class="timeline__content">
+            <p>Implement core reputation data structures with asymmetric punishment. Create NodeReputation with sliding window analysis. Add ReputationStore trait to StateStore. Integrate with scheduler weight calculations for trust-based resource allocation.</p>
+          </div>
+        </div>
+
+        <div class="timeline__item">
+          <div class="timeline__phase">Weeks 3-4</div>
+          <h4 class="timeline__title">Hash-Radix Tree (HR-Tree)</h4>
+          <div class="timeline__content">
+            <p>Implement HR-tree data structure with 8-bit hash fingerprints. Create chunking and hashing algorithms. Add delta synchronization protocol for efficient network updates. Integrate with cluster manager for workload distribution.</p>
+          </div>
+        </div>
+
+        <div class="timeline__item">
+          <div class="timeline__phase">Weeks 5-6</div>
+          <h4 class="timeline__title">S-IDA Anonymous Communication</h4>
+          <div class="timeline__content">
+            <p>Implement GF(2^8) arithmetic, Rabin's IDA for message splitting, and Shamir's Secret Sharing for key distribution. Create proxy establishment protocol. Integrate with CryptoSaint for anonymous credit transactions.</p>
+          </div>
+        </div>
+
+        <div class="timeline__item">
+          <div class="timeline__phase">Future</div>
+          <h4 class="timeline__title">BFT Verification Committee</h4>
+          <div class="timeline__content">
+            <p>Integrate Tendermint consensus. Implement challenge prompt generation and perplexity scoring. Create two-phase voting protocol (Pre-Vote → Pre-Commit). Deploy VRF leader election and committee rotation mechanism.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-lg" style="display: flex; gap: var(--space-md);">
+        <a href="https://arxiv.org/abs/2504.20101" target="_blank" class="btn btn--outline">Research Paper →</a>
+        <a href="technology.html#scaling" class="btn btn--ghost">View Technology Details</a>
+      </div>
+    </div>
+  </section>
+
   <!-- Policy Track -->
   <section class="container">
     <div class="section-header reveal">
