@@ -37,8 +37,9 @@
     --border-subtle: #2a3a30;
 
     /* Typography scale */
-    --font-display: "Syne", sans-serif;
-    --font-body: "Crimson Pro", Georgia, serif;
+    --font-display: "Space Grotesk", sans-serif;
+    --font-body: "Inter", system-ui, sans-serif;
+    --font-mono: "JetBrains Mono", monospace;
 
     --text-xs: 0.75rem;
     --text-sm: 0.875rem;
