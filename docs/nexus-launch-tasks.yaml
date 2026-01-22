@@ -1,0 +1,387 @@
+# NEXUS LAUNCH: Claude-Flow Swarm Tasks
+
+## Task Group: nexus-launch-v1
+## Execution: `npx claude-flow@v3alpha swarm "read nexus-launch-tasks.yaml"`
+
+---
+
+metadata:
+  name: "Nexus Launch - Univrs.io Update & Social Media Campaign"
+  version: "1.0.0"
+  created: "2026-01-18"
+  strategy: "parallel_then_merge"
+  max_agents: 4
+  
+objectives:
+  primary: "Update univrs.io with Nexus section and launch social media presence"
+  secondary: "Document what already exists and can be shared today"
+  tertiary: "Create bridge to Tech Viaduct team"
+
+---
+
+## PHASE 1: WEBSITE UPDATE (univrs.io)
+
+phase_1_website:
+  name: "Univrs.io Nexus Section"
+  duration: "4 hours"
+  priority: "critical"
+  
+  prerequisites:
+    - "Clone univrs/univrs.io repository"
+    - "Review current site structure (HTML)"
+    - "Have open-letter-tech-viaduct.md ready"
+  
+  milestones:
+    - id: "web-1.1"
+      name: "Site Structure Analysis"
+      duration: "30 min"
+      agent: 1
+      tasks:
+        - id: "web-1.1.1"
+          name: "Clone and analyze univrs.io repo"
+          command: |
+            cd ~/repos
+            git clone https://github.com/univrs/univrs.io.git || cd univrs.io && git pull
+            ls -la
+            cat index.html | head -100
+          success: "Understand current HTML structure"
+          
+        - id: "web-1.1.2"
+          name: "Identify insertion points for Nexus section"
+          output: "site-analysis.md"
+          success: "Know where to add new content"
+
+    - id: "web-1.2"
+      name: "Create Nexus Section HTML"
+      duration: "2 hours"
+      agent: 1
+      depends: ["web-1.1"]
+      tasks:
+        - id: "web-1.2.1"
+          name: "Create nexus.html page"
+          description: |
+            Create standalone page at /nexus containing:
+            - Open Letter to Tech Viaduct (letter format)
+            - What Already Exists section with repo links
+            - Social sharing buttons (Twitter, LinkedIn, Bluesky)
+            - Call to action for Nexus Rebels
+            - Mycelium-themed styling consistent with site
+          output: "nexus.html"
+          
+        - id: "web-1.2.2"
+          name: "Add Nexus navigation link"
+          description: "Add 'Nexus' to main navigation"
+          edit_file: "index.html"
+          
+        - id: "web-1.2.3"
+          name: "Create nexus.css styles"
+          description: |
+            Style the letter format:
+            - Professional letter typography
+            - Highlighted code/repo links
+            - Social sharing button styling
+            - Mobile responsive
+          output: "css/nexus.css"
+
+    - id: "web-1.3"
+      name: "Add GoLive Inventory Page"
+      duration: "1 hour"
+      agent: 2
+      depends: ["web-1.1"]
+      tasks:
+        - id: "web-1.3.1"
+          name: "Create inventory.html"
+          description: |
+            Create page showing what's live today:
+            - Repository status table
+            - Live site links
+            - Test count badges
+            - Documentation links
+          output: "inventory.html"
+
+    - id: "web-1.4"
+      name: "Test and Deploy"
+      duration: "30 min"
+      agent: 1
+      depends: ["web-1.2", "web-1.3"]
+      tasks:
+        - id: "web-1.4.1"
+          name: "Local preview"
+          command: |
+            cd ~/repos/univrs.io
+            python -m http.server 8080 &
+            # Open localhost:8080 to verify
+          
+        - id: "web-1.4.2"
+          name: "Commit and push"
+          command: |
+            cd ~/repos/univrs.io
+            git add .
+            git commit -m "Add Nexus section with Tech Viaduct open letter"
+            git push origin main
+          success: "Site deploys to univrs.io"
+
+---
+
+## PHASE 2: GITHUB UPDATES
+
+phase_2_github:
+  name: "GitHub Repository Updates"
+  duration: "2 hours"
+  priority: "high"
+  parallel_with: "phase_1_website"
+  
+  milestones:
+    - id: "gh-2.1"
+      name: "Update Organization README"
+      duration: "45 min"
+      agent: 2
+      tasks:
+        - id: "gh-2.1.1"
+          name: "Update .github/profile/README.md"
+          description: |
+            Add to org README:
+            - Nexus Rebels badge/section
+            - Link to open letter
+            - "What's Live Today" quick reference
+            - Social links
+          repository: "univrs/.github"
+          
+    - id: "gh-2.2"
+      name: "Update Core Repo READMEs"
+      duration: "1 hour"
+      agent: 3
+      tasks:
+        - id: "gh-2.2.1"
+          name: "Update univrs/dol README"
+          description: |
+            Add:
+            - Nexus Rebels badge
+            - "Part of the Digital Commons" tagline
+            - Link to univrs.io/nexus
+          
+        - id: "gh-2.2.2"
+          name: "Update univrs/network README"
+          description: "Same updates as dol"
+          
+        - id: "gh-2.2.3"
+          name: "Update univrs/enr README"
+          description: "Same updates as dol"
+          
+        - id: "gh-2.2.4"
+          name: "Update univrs/vudo README"
+          description: "Same updates as dol"
+
+    - id: "gh-2.3"
+      name: "Create GitHub Discussions"
+      duration: "30 min"
+      agent: 2
+      depends: ["gh-2.1"]
+      tasks:
+        - id: "gh-2.3.1"
+          name: "Create 'Nexus Rebels' discussion category"
+          description: "Enable discussions, create welcome post"
+          repository: "univrs/univrs.io"
+
+---
+
+## PHASE 3: SOCIAL MEDIA LAUNCH
+
+phase_3_social:
+  name: "Social Media Campaign"
+  duration: "2 hours"
+  priority: "high"
+  depends: ["phase_1_website"]
+  
+  milestones:
+    - id: "social-3.1"
+      name: "Prepare Social Assets"
+      duration: "45 min"
+      agent: 4
+      tasks:
+        - id: "social-3.1.1"
+          name: "Create Open Graph images"
+          description: |
+            Create social preview images:
+            - 1200x630 for Twitter/LinkedIn
+            - 1080x1080 for Instagram
+            - Include: Mycelium visual, "Nexus Rebels" text, univrs.io URL
+          output: "og-nexus.png, og-nexus-square.png"
+          
+        - id: "social-3.1.2"
+          name: "Extract tweet thread from letter"
+          description: "Already done in open-letter-tech-viaduct.md"
+          status: "complete"
+
+    - id: "social-3.2"
+      name: "Post to Platforms"
+      duration: "1 hour"
+      agent: 4
+      depends: ["social-3.1", "phase_1_website"]
+      tasks:
+        - id: "social-3.2.1"
+          name: "Post Twitter/X thread"
+          content: "See open-letter-tech-viaduct.md Twitter section"
+          timing: "After site is live"
+          
+        - id: "social-3.2.2"
+          name: "Post LinkedIn article"
+          content: "See open-letter-tech-viaduct.md LinkedIn section"
+          timing: "1 hour after Twitter"
+          
+        - id: "social-3.2.3"
+          name: "Post Bluesky"
+          content: "See open-letter-tech-viaduct.md Bluesky section"
+          timing: "Same time as Twitter"
+
+    - id: "social-3.3"
+      name: "Outreach"
+      duration: "30 min"
+      agent: 4
+      depends: ["social-3.2"]
+      tasks:
+        - id: "social-3.3.1"
+          name: "Tag relevant accounts"
+          description: |
+            Tag in replies (not main post):
+            - @searchlightinst
+            - @miaborito (Mikey Dickerson)
+            - Civic tech community accounts
+          
+        - id: "social-3.3.2"
+          name: "Post in relevant communities"
+          description: |
+            Share in:
+            - r/govtech
+            - Civic tech Slack/Discord
+            - Hacker News (if appropriate)
+
+---
+
+## PHASE 4: DOCUMENTATION UPDATES
+
+phase_4_docs:
+  name: "Documentation Alignment"
+  duration: "2 hours"
+  priority: "medium"
+  parallel_with: "phase_3_social"
+  
+  milestones:
+    - id: "docs-4.1"
+      name: "Update book.univrs.io"
+      duration: "1.5 hours"
+      agent: 3
+      tasks:
+        - id: "docs-4.1.1"
+          name: "Add Nexus Rebels section"
+          description: |
+            Create new section in docs:
+            - /docs/nexus-rebels/overview
+            - /docs/nexus-rebels/open-letter
+            - /docs/nexus-rebels/how-to-join
+          
+        - id: "docs-4.1.2"
+          name: "Update roadmap page"
+          description: "Add Nexus milestone to roadmap"
+          
+        - id: "docs-4.1.3"
+          name: "Add Tech Viaduct context"
+          description: "Brief explanation of why this matters"
+
+---
+
+## EXECUTION COMMANDS
+
+```bash
+# Full swarm execution
+npx claude-flow@v3alpha swarm "read nexus-launch-tasks.yaml"
+
+# Phase-by-phase execution
+npx claude-flow@v3alpha swarm "read nexus-launch-tasks.yaml --phase phase_1_website"
+npx claude-flow@v3alpha swarm "read nexus-launch-tasks.yaml --phase phase_2_github"
+npx claude-flow@v3alpha swarm "read nexus-launch-tasks.yaml --phase phase_3_social"
+npx claude-flow@v3alpha swarm "read nexus-launch-tasks.yaml --phase phase_4_docs"
+
+# Single milestone
+npx claude-flow@v3alpha swarm "read nexus-launch-tasks.yaml --milestone web-1.2"
+
+# Verify completion
+npx claude-flow@v3alpha swarm "verify-gate nexus-launch"
+```
+
+---
+
+## GATE CRITERIA
+
+gate_criteria:
+  phase_1:
+    - "univrs.io/nexus returns 200"
+    - "Open letter visible on page"
+    - "Social sharing buttons functional"
+    - "Mobile responsive"
+    
+  phase_2:
+    - "All 4 core repo READMEs updated"
+    - "Org README has Nexus section"
+    - "GitHub Discussions enabled"
+    
+  phase_3:
+    - "Twitter thread posted"
+    - "LinkedIn post published"
+    - "Bluesky post published"
+    
+  phase_4:
+    - "book.univrs.io has Nexus section"
+    - "Roadmap updated"
+
+---
+
+## ROLLBACK PLAN
+
+rollback:
+  trigger: "Any critical failure in Phase 1"
+  steps:
+    - "git revert last commit on univrs.io"
+    - "git push origin main"
+    - "Verify rollback with curl"
+  
+  social_rollback:
+    trigger: "Negative reception or errors"
+    steps:
+      - "Delete/edit problematic posts"
+      - "Post correction if needed"
+
+---
+
+## POST-LAUNCH MONITORING
+
+monitoring:
+  day_1:
+    - Check site uptime every 2 hours
+    - Monitor social engagement
+    - Respond to any comments/questions
+    
+  week_1:
+    - Track GitHub star/fork activity
+    - Monitor for any Tech Viaduct response
+    - Document lessons learned
+    
+  metrics_to_capture:
+    - Page views on /nexus
+    - Social impressions/engagement
+    - GitHub traffic
+    - Any inbound inquiries
+
+---
+
+## NOTES
+
+- Keep tone professional but passionate
+- Don't over-claim—stick to what's verifiable
+- Be prepared for questions about technical readiness
+- The goal is bridge-building, not confrontation
+- Let the code speak for itself
+
+---
+
+*"Tactical precision in service of strategic vision"*
