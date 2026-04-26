@@ -1,10 +1,10 @@
 /*
   Univrs.io Design System
   Aesthetic: Organic Bioluminescence — dark forest floor with mycelial glow
-  Typography: Space Grotesk (display) + Inter (body) + JetBrains Mono (code)
+  Typography: Fraunces (display) + Inter (body) + JetBrains Mono (code)
 */
 
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@300;400;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..900,0..100&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap");
 
 /* ═══════════════════════════════════════════════════════════════
    CSS VARIABLES
@@ -37,7 +37,7 @@
     --border-subtle: #2a3a30;
 
     /* Typography scale */
-    --font-display: "Space Grotesk", sans-serif;
+    --font-display: "Fraunces", "Iowan Old Style", Georgia, serif;
     --font-body: "Inter", system-ui, sans-serif;
     --font-mono: "JetBrains Mono", monospace;
 
