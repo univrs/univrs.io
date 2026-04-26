@@ -3,12 +3,652 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Univrs.io Roadmap — Phased implementation pathway from foundation building to full economic transition.">
-  
-  <title>Roadmap — Univrs.io</title>
-  
+  <meta name="description" content="The Mycelial Republic Stack — From topology argument to constitutional substrate. A Phase 5 alignment for ENR, Melatearn, and VUDO.">
+
+  <title>Roadmap — The Mycelial Republic Stack — Univrs.io</title>
+
   <link rel="stylesheet" href="css/styles.css">
   <link rel="icon" type="image/png" href="assets/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..900,0..100&display=swap" rel="stylesheet">
+
+  <style>
+    /* ═══════════════════════════════════════════════════════════
+       REPUBLIC ROADMAP — Page-specific styles
+       Fraunces serif for editorial headings, adapted to
+       univrs.io's bioluminescent dark theme
+       ═══════════════════════════════════════════════════════════ */
+
+    :root {
+      --rp-display: "Fraunces", "Iowan Old Style", Georgia, serif;
+      --rp-moss: #5a8a3a;
+      --rp-sage: #97bc62;
+      --rp-rust: #b85042;
+      --rp-measure: 68ch;
+    }
+
+    /* ===== Republic Hero ===== */
+    .rp-hero {
+      min-height: 85vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      isolation: isolate;
+      padding: var(--space-3xl) var(--space-md) var(--space-2xl);
+    }
+
+    .rp-hero__hyphae {
+      position: absolute;
+      top: 0; left: -10%; right: -10%;
+      width: 120%; height: 100%;
+      z-index: 0;
+      pointer-events: none;
+      opacity: 0.4;
+    }
+
+    .rp-hero__hyphae-strands path {
+      stroke-dasharray: 6 3;
+      animation: rp-flow 22s linear infinite;
+    }
+    .rp-hero__hyphae-strands path:nth-child(2) { animation-duration: 28s; animation-direction: reverse; }
+    .rp-hero__hyphae-strands path:nth-child(3) { animation-duration: 35s; }
+    .rp-hero__hyphae-strands path:nth-child(4) { animation-duration: 40s; animation-direction: reverse; }
+    .rp-hero__hyphae-strands path:nth-child(5) { animation-duration: 30s; }
+
+    @keyframes rp-flow {
+      from { stroke-dashoffset: 0; }
+      to { stroke-dashoffset: -200; }
+    }
+
+    .rp-hero__hyphae-nodes circle {
+      animation: rp-pulse 4s ease-in-out infinite;
+    }
+    .rp-hero__hyphae-nodes circle:nth-child(odd) { animation-delay: 1.3s; }
+    .rp-hero__hyphae-nodes circle:nth-child(3n) { animation-delay: 2.1s; }
+
+    @keyframes rp-pulse {
+      0%, 100% { opacity: 0.4; }
+      50% { opacity: 1; }
+    }
+
+    .rp-hero__content {
+      position: relative;
+      z-index: 1;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 var(--space-md);
+      animation: fade-up 1s ease-out;
+    }
+
+    .rp-hero__meta {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--glow-cyan);
+      margin-bottom: var(--space-lg);
+      display: flex;
+      gap: 0.65rem;
+      align-items: center;
+    }
+    .rp-hero__meta .rp-dot { color: var(--border-subtle); }
+
+    .rp-hero__title {
+      font-family: var(--rp-display);
+      font-weight: 400;
+      font-variation-settings: "opsz" 144, "SOFT" 30;
+      font-size: clamp(3rem, 8vw, 6.5rem);
+      line-height: 0.95;
+      letter-spacing: -0.025em;
+      color: var(--text-primary);
+      margin-bottom: var(--space-lg);
+    }
+    .rp-hero__title span {
+      display: block;
+    }
+    .rp-hero__title .rp-line-2 {
+      font-style: italic;
+      font-variation-settings: "opsz" 144, "SOFT" 90;
+      color: var(--glow-cyan);
+    }
+
+    .rp-hero__sub {
+      font-family: var(--rp-display);
+      font-style: italic;
+      font-weight: 300;
+      font-size: clamp(1.2rem, 2.2vw, 1.7rem);
+      line-height: 1.35;
+      color: var(--text-primary);
+      max-width: 30ch;
+      margin-bottom: var(--space-md);
+    }
+
+    .rp-hero__deck {
+      max-width: var(--rp-measure);
+      font-size: 1.05rem;
+      color: var(--text-secondary);
+      margin-bottom: var(--space-lg);
+    }
+
+    .rp-hero__rule {
+      height: 1px;
+      background: linear-gradient(to right, var(--glow-cyan) 0%, var(--glow-cyan) 80px, transparent 80px);
+      margin-bottom: var(--space-md);
+    }
+
+    .rp-hero__stats {
+      display: flex;
+      gap: clamp(2rem, 5vw, 4rem);
+    }
+    .rp-hero__stats div {
+      display: flex;
+      flex-direction: column;
+    }
+    .rp-hero__stats strong {
+      font-family: var(--rp-display);
+      font-weight: 300;
+      font-size: 2.6rem;
+      line-height: 1;
+      color: var(--glow-cyan);
+      text-shadow: var(--glow-sm);
+    }
+    .rp-hero__stats span {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+      margin-top: 0.4rem;
+    }
+
+    /* ===== Section labels ===== */
+    .rp-label {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--glow-cyan);
+      margin-bottom: 1.25rem;
+    }
+
+    .rp-section h2 {
+      font-family: var(--rp-display);
+      font-weight: 400;
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      line-height: 1.1;
+      letter-spacing: -0.015em;
+      color: var(--text-primary);
+      max-width: 22ch;
+      margin-bottom: var(--space-md);
+    }
+
+    .rp-section h2 code {
+      font-family: var(--font-mono);
+      font-size: 0.75em;
+      background: var(--glow-cyan-dim);
+      color: var(--glow-cyan);
+      padding: 0.1em 0.4em;
+      border-radius: 4px;
+      font-weight: 500;
+    }
+
+    .rp-lede {
+      max-width: var(--rp-measure);
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      margin-bottom: var(--space-lg);
+    }
+
+    .rp-footnote {
+      font-family: var(--rp-display);
+      font-style: italic;
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      margin-top: var(--space-lg);
+      max-width: var(--rp-measure);
+    }
+
+    /* ===== Frame: tree vs mycelial compare ===== */
+    .rp-compare {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: var(--space-md);
+      margin-top: var(--space-lg);
+    }
+    .rp-compare-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      padding: var(--space-lg) var(--space-lg) var(--space-md);
+      border-radius: 8px;
+      position: relative;
+    }
+    .rp-compare-card--tree { border-left: 3px solid var(--rp-rust); }
+    .rp-compare-card--mycelial { border-left: 3px solid var(--glow-cyan); }
+
+    .rp-compare-pill {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      padding: 0.3rem 0.65rem;
+      border-radius: 4px;
+      margin-bottom: var(--space-sm);
+    }
+    .rp-compare-pill--tree { background: rgba(184, 80, 66, 0.15); color: var(--rp-rust); }
+    .rp-compare-pill--mycelial { background: var(--glow-cyan-dim); color: var(--glow-cyan); }
+
+    .rp-compare-card h3 {
+      font-family: var(--rp-display);
+      font-weight: 500;
+      font-size: 1.3rem;
+      color: var(--text-primary);
+      margin-bottom: var(--space-md);
+    }
+    .rp-compare-card ul { list-style: none; }
+    .rp-compare-card li {
+      padding: 0.6rem 0 0.6rem 1.2rem;
+      position: relative;
+      border-top: 1px solid var(--border-subtle);
+      color: var(--text-secondary);
+    }
+    .rp-compare-card li:first-child { border-top: 0; }
+    .rp-compare-card li::before {
+      content: "";
+      position: absolute;
+      left: 0; top: 1.05rem;
+      width: 8px; height: 1px;
+      background: var(--glow-cyan);
+    }
+    .rp-compare-card--tree li::before { background: var(--rp-rust); }
+    .rp-compare-card li strong {
+      display: block;
+      color: var(--text-primary);
+      font-weight: 600;
+      margin-bottom: 0.15rem;
+    }
+
+    /* ===== Three claims ===== */
+    .rp-claims {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: var(--space-md);
+      margin-top: var(--space-lg);
+    }
+    .rp-claim {
+      padding: var(--space-lg);
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 8px;
+      transition: transform 0.3s ease, border-color 0.3s ease;
+    }
+    .rp-claim:hover {
+      transform: translateY(-4px);
+      border-color: var(--glow-cyan);
+      box-shadow: var(--glow-sm);
+    }
+    .rp-claim__num {
+      font-family: var(--rp-display);
+      font-style: italic;
+      font-weight: 300;
+      font-size: 3rem;
+      color: var(--glow-cyan);
+      line-height: 1;
+      margin-bottom: var(--space-sm);
+      text-shadow: var(--glow-sm);
+    }
+    .rp-claim h3 {
+      font-family: var(--rp-display);
+      font-weight: 500;
+      font-size: 1.4rem;
+      color: var(--text-primary);
+      margin-bottom: 0.75rem;
+    }
+    .rp-claim p {
+      color: var(--text-secondary);
+      margin-bottom: 0;
+    }
+
+    /* ===== Three-layer stack ===== */
+    .rp-stack {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0.5rem;
+      margin-top: var(--space-lg);
+    }
+    .rp-layer {
+      padding: var(--space-md) var(--space-lg);
+      border-radius: 8px;
+      position: relative;
+    }
+    .rp-layer--republic {
+      background: linear-gradient(135deg, rgba(0, 255, 136, 0.15), rgba(0, 255, 136, 0.05));
+      border: 1px solid var(--glow-cyan);
+      box-shadow: var(--glow-sm);
+    }
+    .rp-layer--melatearn {
+      background: linear-gradient(135deg, rgba(255, 215, 0, 0.12), rgba(255, 215, 0, 0.04));
+      border: 1px solid var(--glow-gold-dim);
+    }
+    .rp-layer--enr {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+    }
+    .rp-layer__tag {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--glow-cyan);
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    .rp-layer--melatearn .rp-layer__tag { color: var(--glow-gold); }
+    .rp-layer--enr .rp-layer__tag { color: var(--text-secondary); }
+    .rp-layer h3 {
+      font-family: var(--rp-display);
+      font-weight: 500;
+      font-size: 1.5rem;
+      color: var(--text-primary);
+      margin-bottom: 0.5rem;
+    }
+    .rp-layer p {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      margin-bottom: 0;
+    }
+    .rp-layer-arrow {
+      text-align: center;
+      color: var(--glow-cyan);
+      font-size: 0.9rem;
+      opacity: 0.6;
+    }
+
+    /* ===== Plug points ===== */
+    .rp-plugs {
+      list-style: none;
+      margin-top: var(--space-lg);
+      counter-reset: plug;
+    }
+    .rp-plugs li {
+      padding: var(--space-md) 0;
+      border-top: 1px solid var(--border-subtle);
+      display: grid;
+      grid-template-columns: minmax(200px, 1fr) minmax(220px, 1fr) minmax(0, 2fr);
+      gap: var(--space-md);
+      align-items: baseline;
+      counter-increment: plug;
+    }
+    .rp-plugs li:last-child { border-bottom: 1px solid var(--border-subtle); }
+    .rp-plug-from {
+      font-family: var(--rp-display);
+      font-style: italic;
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+    }
+    .rp-plug-from::before {
+      content: counter(plug, decimal-leading-zero);
+      font-family: var(--font-mono);
+      font-style: normal;
+      color: var(--glow-cyan);
+      margin-right: 0.6rem;
+    }
+    .rp-plug-to {
+      font-family: var(--rp-display);
+      font-weight: 500;
+      font-size: 1.15rem;
+      color: var(--text-primary);
+    }
+    .rp-plug-to::before {
+      content: "\2192 ";
+      color: var(--glow-cyan);
+    }
+    .rp-plugs p {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      margin-bottom: 0;
+    }
+    @media (max-width: 800px) {
+      .rp-plugs li { grid-template-columns: 1fr; gap: 0.5rem; }
+    }
+
+    /* ===== Melatearn primitives ===== */
+    .rp-primitives {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: var(--space-md);
+      margin-top: var(--space-sm);
+    }
+    .rp-primitive {
+      padding: var(--space-md);
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 8px;
+      border-top: 3px solid var(--glow-gold);
+      transition: var(--transition-base);
+    }
+    .rp-primitive:hover {
+      border-color: var(--glow-gold-dim);
+      box-shadow: 0 0 10px var(--glow-gold-dim);
+      transform: translateY(-4px);
+    }
+    .rp-primitive__marker {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      letter-spacing: 0.16em;
+      color: var(--glow-gold);
+      margin-bottom: var(--space-sm);
+    }
+    .rp-primitive h3 {
+      font-family: var(--rp-display);
+      font-weight: 500;
+      font-size: 1.3rem;
+      color: var(--text-primary);
+      margin-bottom: 0.6rem;
+    }
+    .rp-primitive p {
+      color: var(--text-secondary);
+      margin-bottom: 0;
+    }
+
+    /* ===== Constitutional invariants grid ===== */
+    .rp-invariants-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1px;
+      background: var(--border-subtle);
+      border: 1px solid var(--border-subtle);
+      border-radius: 8px;
+      overflow: hidden;
+      margin-top: var(--space-sm);
+    }
+    .rp-invariant {
+      background: var(--bg-card);
+      padding: var(--space-lg) var(--space-md);
+    }
+    .rp-invariant__name {
+      font-family: var(--rp-display);
+      font-weight: 500;
+      font-size: 1.4rem;
+      color: var(--text-primary);
+      margin-bottom: var(--space-sm);
+    }
+    .rp-invariant__name::before {
+      content: "\00A7 ";
+      color: var(--glow-cyan);
+      font-style: italic;
+    }
+    .rp-invariant__enforces {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      margin-bottom: var(--space-sm);
+    }
+    .rp-invariant__maps {
+      font-family: var(--rp-display);
+      font-style: italic;
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      padding-top: var(--space-sm);
+      border-top: 1px solid var(--border-subtle);
+      margin-bottom: 0;
+    }
+
+    /* ===== Deliverables ===== */
+    .rp-deliverables {
+      list-style: none;
+      margin-top: var(--space-md);
+    }
+    .rp-deliverable {
+      display: grid;
+      grid-template-columns: 80px 1fr;
+      gap: var(--space-lg);
+      padding: var(--space-md) 0;
+      border-top: 1px solid var(--border-subtle);
+      align-items: start;
+    }
+    .rp-deliverable:last-child { border-bottom: 1px solid var(--border-subtle); }
+    .rp-deliverable__num {
+      font-family: var(--rp-display);
+      font-weight: 300;
+      font-style: italic;
+      font-size: 3rem;
+      line-height: 0.9;
+      color: var(--glow-cyan);
+      text-shadow: var(--glow-sm);
+    }
+    .rp-deliverable h3 {
+      font-family: var(--font-mono);
+      font-weight: 500;
+      font-size: 1.05rem;
+      color: var(--text-primary);
+      margin-bottom: 0.5rem;
+    }
+    .rp-deliverable p {
+      color: var(--text-secondary);
+      margin-bottom: 0;
+    }
+    @media (max-width: 600px) {
+      .rp-deliverable { grid-template-columns: 60px 1fr; gap: var(--space-sm); }
+      .rp-deliverable__num { font-size: 2rem; }
+    }
+
+    /* ===== Gap section ===== */
+    .rp-gap-pair {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: var(--space-md);
+      margin-top: var(--space-lg);
+    }
+    .rp-gap-card {
+      padding: var(--space-lg);
+      border-radius: 8px;
+    }
+    .rp-gap-card--risk {
+      background: rgba(184, 80, 66, 0.08);
+      border: 1px solid rgba(184, 80, 66, 0.3);
+    }
+    .rp-gap-card--window {
+      background: linear-gradient(135deg, rgba(0, 255, 136, 0.12), rgba(0, 255, 136, 0.04));
+      border: 1px solid var(--glow-cyan);
+      box-shadow: var(--glow-sm);
+    }
+    .rp-gap-pill {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      padding: 0.3rem 0.65rem;
+      border-radius: 4px;
+      margin-bottom: var(--space-sm);
+    }
+    .rp-gap-pill--risk { background: rgba(184, 80, 66, 0.18); color: var(--rp-rust); }
+    .rp-gap-pill--window { background: var(--glow-cyan-dim); color: var(--glow-cyan); }
+    .rp-gap-card h3 {
+      font-family: var(--rp-display);
+      font-weight: 500;
+      font-size: 1.4rem;
+      color: var(--text-primary);
+      margin-bottom: var(--space-sm);
+    }
+    .rp-gap-card p {
+      color: var(--text-secondary);
+      margin-bottom: 0;
+    }
+
+    /* ===== Closing ===== */
+    .rp-closing {
+      text-align: center;
+      padding: var(--space-3xl) var(--space-md);
+    }
+    .rp-closing__rule {
+      width: 60px;
+      height: 2px;
+      background: var(--glow-cyan);
+      margin: 0 auto var(--space-lg);
+      box-shadow: var(--glow-sm);
+    }
+    .rp-closing__eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      color: var(--glow-cyan);
+      margin-bottom: var(--space-lg);
+    }
+    .rp-closing__quote {
+      font-family: var(--rp-display);
+      font-weight: 300;
+      font-size: clamp(1.5rem, 3.2vw, 2.4rem);
+      line-height: 1.25;
+      color: var(--text-primary);
+      max-width: 28ch;
+      margin: 0 auto var(--space-lg);
+      border: none;
+      padding: 0;
+    }
+    .rp-closing__quote em {
+      font-style: italic;
+      color: var(--glow-cyan);
+    }
+    .rp-closing__tag {
+      font-family: var(--rp-display);
+      font-style: italic;
+      font-size: 1rem;
+      color: var(--text-secondary);
+      max-width: 50ch;
+      margin: 0 auto;
+    }
+
+    /* ===== Light theme adjustments ===== */
+    [data-theme="light"] .rp-hero__title { color: #1a221d; }
+    [data-theme="light"] .rp-hero__title .rp-line-2 { color: #047857; }
+    [data-theme="light"] .rp-hero__stats strong { color: #047857; text-shadow: none; }
+    [data-theme="light"] .rp-claim__num { color: #047857; text-shadow: none; }
+    [data-theme="light"] .rp-deliverable__num { color: #047857; text-shadow: none; }
+    [data-theme="light"] .rp-gap-card--window {
+      background: linear-gradient(135deg, rgba(4, 120, 87, 0.1), rgba(4, 120, 87, 0.03));
+      border-color: #047857;
+      box-shadow: none;
+    }
+    [data-theme="light"] .rp-layer--republic {
+      background: linear-gradient(135deg, rgba(4, 120, 87, 0.12), rgba(4, 120, 87, 0.04));
+      border-color: #047857;
+      box-shadow: none;
+    }
+    [data-theme="light"] .rp-closing__rule { box-shadow: none; }
+    [data-theme="light"] .rp-primitive:hover { box-shadow: none; }
+    [data-theme="light"] .rp-claim:hover { box-shadow: none; }
+
+    /* ===== Reduce motion ===== */
+    @media (prefers-reduced-motion: reduce) {
+      .rp-hero__hyphae-strands path,
+      .rp-hero__hyphae-nodes circle {
+        animation: none;
+      }
+    }
+  </style>
 </head>
 <body>
   <!-- Navigation -->
@@ -18,13 +658,13 @@
         <span class="nav__logo-icon"><img src="assets/logo.png" alt="Univrs.io" style="width: 100%; height: 100%; object-fit: contain;"></span>
         Univrs.io
       </a>
-      
+
       <button class="nav__toggle" aria-label="Toggle menu" aria-expanded="false">
         <span></span>
         <span></span>
         <span></span>
       </button>
-      
+
       <div class="nav__menu">
         <ul class="nav__links">
           <li><a href="/" class="nav__link">Home</a></li>
@@ -35,242 +675,446 @@
           <li><a href="collaborate.html" class="nav__link">Collaborate</a></li>
         </ul>
       </div>
-      
+
       <button class="theme-toggle" aria-label="Toggle theme">🌙</button>
     </div>
   </nav>
 
-  <!-- Page Header -->
-  <section class="hero" style="min-height: 60vh;">
-    <div class="hero__content">
-      <p class="hero__tagline">Implementation Roadmap</p>
-      <h1 class="hero__title">
-        From vision to<br>
-        <span class="text-gradient">living infrastructure</span>
+  <!-- ============================================================
+       THE MYCELIAL REPUBLIC STACK — 2027 ROADMAP
+       ============================================================ -->
+
+  <!-- Republic Hero -->
+  <section class="rp-hero" id="top">
+    <svg class="rp-hero__hyphae" viewBox="0 0 1440 900" aria-hidden="true">
+      <defs>
+        <radialGradient id="rp-glow" cx="50%" cy="40%" r="60%">
+          <stop offset="0%" stop-color="var(--glow-cyan)" stop-opacity="0.15"/>
+          <stop offset="60%" stop-color="var(--glow-cyan)" stop-opacity="0"/>
+        </radialGradient>
+      </defs>
+      <rect width="1440" height="900" fill="url(#rp-glow)"/>
+      <g class="rp-hero__hyphae-strands" stroke="var(--glow-cyan)" fill="none" stroke-width="0.7" opacity="0.55">
+        <path d="M-50,420 C 200,300 380,560 620,440 S 900,300 1180,500 S 1440,400 1500,420"/>
+        <path d="M-50,520 C 220,450 400,650 660,540 S 920,420 1200,600 S 1440,520 1500,540"/>
+        <path d="M-50,320 C 180,220 360,460 600,340 S 880,200 1160,400 S 1440,300 1500,320"/>
+        <path d="M-50,640 C 240,580 420,760 680,660 S 940,540 1220,720 S 1440,640 1500,660"/>
+        <path d="M-50,220 C 160,140 340,360 580,240 S 860,100 1140,300 S 1440,200 1500,220"/>
+      </g>
+      <g class="rp-hero__hyphae-nodes" fill="var(--glow-cyan)">
+        <circle cx="320" cy="380" r="2.5"/>
+        <circle cx="620" cy="440" r="3"/>
+        <circle cx="900" cy="380" r="2"/>
+        <circle cx="1180" cy="500" r="2.8"/>
+        <circle cx="660" cy="540" r="2.5"/>
+        <circle cx="1200" cy="600" r="2"/>
+        <circle cx="600" cy="340" r="2.2"/>
+        <circle cx="1160" cy="400" r="2"/>
+      </g>
+    </svg>
+
+    <div class="rp-hero__content">
+      <div class="rp-hero__meta">
+        <span>UNIVRS.IO</span>
+        <span class="rp-dot">&middot;</span>
+        <span>Phase 5</span>
+        <span class="rp-dot">&middot;</span>
+        <span>2027 Roadmap</span>
+      </div>
+
+      <h1 class="rp-hero__title">
+        <span>The Mycelial</span>
+        <span class="rp-line-2">Republic Stack</span>
       </h1>
-      <p class="hero__subtitle">
-        A phased approach based on successful community transitions worldwide—
-        building foundations, developing networks, and enabling economic transformation.
+
+      <p class="rp-hero__sub">
+        From topology argument to constitutional substrate.
+      </p>
+
+      <p class="rp-hero__deck">
+        A Phase 5 alignment for ENR, Melatearn, and VUDO — encoding human
+        dignity into the protocol layer where coordination at industrial
+        scale meets autonomy at the node level.
+      </p>
+
+      <div class="rp-hero__rule"></div>
+
+      <div class="rp-hero__stats">
+        <div>
+          <strong>3</strong>
+          <span>layers</span>
+        </div>
+        <div>
+          <strong>5</strong>
+          <span>invariants</span>
+        </div>
+        <div>
+          <strong>4</strong>
+          <span>AI primitives</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section I: The Frame -->
+  <section class="container rp-section">
+    <div class="reveal">
+      <div class="rp-label">&sect; I &mdash; The frame, sharpened</div>
+      <h2>The villain isn't industrialization. It's topology.</h2>
+      <p class="rp-lede">
+        Industrial systems didn't degrade humanity by existing; they imposed a
+        tree-shaped topology on a world that had previously been more network-shaped.
+        Whoever controls the root controls the flow. The fungal-network metaphor
+        stops being decorative and becomes a precise architectural specification.
+      </p>
+
+      <div class="rp-compare">
+        <div class="rp-compare-card rp-compare-card--tree">
+          <div class="rp-compare-pill rp-compare-pill--tree">Tree topology</div>
+          <h3>How industrial systems coordinate</h3>
+          <ul>
+            <li>
+              <strong>Has a root.</strong>
+              Whoever controls the root controls the flow.
+            </li>
+            <li>
+              <strong>Single point of failure.</strong>
+              Cut the trunk, the whole tree falls.
+            </li>
+            <li>
+              <strong>No node-level autonomy.</strong>
+              Children get only what the parent grants.
+            </li>
+          </ul>
+        </div>
+
+        <div class="rp-compare-card rp-compare-card--mycelial">
+          <div class="rp-compare-pill rp-compare-pill--mycelial">Mycelial topology</div>
+          <h3>How biological networks coordinate</h3>
+          <ul>
+            <li>
+              <strong>No root.</strong>
+              Local sensing, global propagation.
+            </li>
+            <li>
+              <strong>Redundancy as resilience.</strong>
+              Sever any branch and flow reroutes.
+            </li>
+            <li>
+              <strong>Reciprocity over hierarchy.</strong>
+              Free-riders throttled at the chemistry of exchange.
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="rp-footnote">
+        The original critique survives all five critics &mdash; Land, Marx, Piketty, Hayek, Ostrom.
       </p>
     </div>
   </section>
 
-  <!-- Three Phases Overview -->
-  <section class="container">
-    <div class="grid grid--3 stagger-children">
-      <div class="card" style="border-top: 4px solid var(--glow-cyan);">
-        <span class="tag">Phase 1</span>
-        <h3 class="mt-md">Foundation Building</h3>
-        <p style="color: var(--glow-cyan); font-family: var(--font-display); font-weight: 600;">0-6 Months</p>
-        <p class="card__text">Establish digital communication infrastructure, deploy volunteer management, create resource inventories, and build cross-community connections.</p>
-      </div>
-      
-      <div class="card" style="border-top: 4px solid var(--glow-gold);">
-        <span class="tag tag--gold">Phase 2</span>
-        <h3 class="mt-md">Network Development</h3>
-        <p style="color: var(--glow-gold); font-family: var(--font-display); font-weight: 600;">6-18 Months</p>
-        <p class="card__text">Implement knowledge sharing platforms, establish resource circulation systems, create skill-sharing programs, and develop assessment metrics.</p>
-      </div>
-      
-      <div class="card" style="border-top: 4px solid var(--spore-purple);">
-        <span class="tag tag--purple">Phase 3</span>
-        <h3 class="mt-md">Economic Transition</h3>
-        <p style="color: var(--spore-purple); font-family: var(--font-display); font-weight: 600;">18+ Months</p>
-        <p class="card__text">Launch cooperative enterprises, implement local production systems, create community-owned renewable energy, and establish bioregional trade networks.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Phase 1 Detail -->
-  <section class="container">
+  <!-- Section II: Three Claims -->
+  <section class="container rp-section">
     <div class="reveal">
-      <div class="section-header" style="text-align: left;">
-        <span class="tag">Phase 1</span>
-        <h2 class="mt-md">Foundation Building <span style="color: var(--text-secondary); font-weight: 400;">— 0-6 Months</span></h2>
+      <div class="rp-label">&sect; II &mdash; What the argument demands</div>
+      <h2>Three claims become substrate invariants.</h2>
+
+      <div class="rp-claims">
+        <article class="rp-claim">
+          <div class="rp-claim__num">01</div>
+          <h3>No root node</h3>
+          <p>
+            Whoever controls the root controls the flow. No single hub,
+            state, or corporation may sit above the protocol.
+          </p>
+        </article>
+
+        <article class="rp-claim">
+          <div class="rp-claim__num">02</div>
+          <h3>Reciprocity in chemistry</h3>
+          <p>
+            Free-riders throttled, contributors rewarded &mdash; at the
+            substrate level, not by appeal. Encoded in the exchange itself.
+          </p>
+        </article>
+
+        <article class="rp-claim">
+          <div class="rp-claim__num">03</div>
+          <h3>Values in the rules</h3>
+          <p>
+            Mycelium is amoral. Humans are not. Decentralized topology is
+            necessary but not sufficient. Values must be encoded in the protocol.
+          </p>
+        </article>
       </div>
-      
-      <div class="timeline mt-xl">
-        <div class="timeline__item">
-          <div class="timeline__phase">Month 1-2</div>
-          <h4 class="timeline__title">Digital Infrastructure</h4>
-          <div class="timeline__content">
-            <p>Establish communication channels using Slack/Discord for real-time coordination. Set up shared document systems (Google Drive, Notion) for collaborative knowledge building. Deploy project management tools (Trello, GitHub Projects) for task tracking.</p>
-          </div>
-        </div>
-        
-        <div class="timeline__item">
-          <div class="timeline__phase">Month 2-3</div>
-          <h4 class="timeline__title">Community Mapping</h4>
-          <div class="timeline__content">
-            <p>Create resource inventories using Airtable or similar. Map community skills, needs, and assets. Identify local businesses, service providers, and organizations willing to participate. Deploy Zelos for volunteer management.</p>
-          </div>
-        </div>
-        
-        <div class="timeline__item">
-          <div class="timeline__phase">Month 3-4</div>
-          <h4 class="timeline__title">Cross-Community Connections</h4>
-          <div class="timeline__content">
-            <p>Join bioregional platforms like Hylo. Connect with existing mutual credit networks through Community Exchange System. Establish relationships with aligned organizations and movements.</p>
-          </div>
-        </div>
-        
-        <div class="timeline__item">
-          <div class="timeline__phase">Month 5-6</div>
-          <h4 class="timeline__title">Governance Foundation</h4>
-          <div class="timeline__content">
-            <p>Deploy Loomio for decision-making. Establish core organizing team (5-10 committed individuals). Create appropriate legal structures—cooperatives for democratic ownership or non-profits for community benefit.</p>
-          </div>
-        </div>
-      </div>
+
+      <p class="rp-footnote">
+        Two map onto the existing ENR layer. The third names the gap that 2027 closes.
+      </p>
     </div>
   </section>
 
-  <!-- Phase 2 Detail -->
-  <section class="container">
+  <!-- Section III: The 2027 Stack -->
+  <section class="container rp-section">
     <div class="reveal">
-      <div class="section-header" style="text-align: left;">
-        <span class="tag tag--gold">Phase 2</span>
-        <h2 class="mt-md">Network Development <span style="color: var(--text-secondary); font-weight: 400;">— 6-18 Months</span></h2>
-      </div>
-      
-      <div class="timeline mt-xl">
-        <div class="timeline__item">
-          <div class="timeline__phase">Month 6-9</div>
-          <h4 class="timeline__title">Knowledge Infrastructure</h4>
-          <div class="timeline__content">
-            <p>Implement comprehensive documentation systems. Create skill-sharing programs using video conferencing. Establish mentorship networks. Build training materials for new participants.</p>
-          </div>
+      <div class="rp-label">&sect; III &mdash; The 2027 stack</div>
+      <h2>Three layers, one substrate.</h2>
+
+      <div class="rp-stack">
+        <div class="rp-layer rp-layer--republic">
+          <span class="rp-layer__tag">NEW &middot; 2027</span>
+          <h3>Republic Layer</h3>
+          <p>
+            Constitutional invariants &middot; Dignity preservation &middot; Polycentric
+            governance &middot; Ostromian design principles encoded as DOL constraints.
+          </p>
         </div>
-        
-        <div class="timeline__item">
-          <div class="timeline__phase">Month 9-12</div>
-          <h4 class="timeline__title">Resource Circulation Systems</h4>
-          <div class="timeline__content">
-            <p>Deploy Cyclos for mutual credit testing. Start with simple time banking or skills exchange. Pilot with committed early adopters before broader rollout. Document everything for learning.</p>
-          </div>
+        <div class="rp-layer-arrow">&#9661;</div>
+        <div class="rp-layer rp-layer--melatearn">
+          <span class="rp-layer__tag">NEW &middot; the exchange chemistry</span>
+          <h3>Melatearn AI Layer</h3>
+          <p>
+            Contribution evaluation &middot; Sybil resistance &middot; Septal appeals &middot;
+            Reputation as verifiable contribution &middot; Eval-as-protocol.
+          </p>
         </div>
-        
-        <div class="timeline__item">
-          <div class="timeline__phase">Month 12-15</div>
-          <h4 class="timeline__title">Assessment & Metrics</h4>
-          <div class="timeline__content">
-            <p>Develop community resilience frameworks. Begin ecological health monitoring if relevant. Create feedback loops between economic activity and community/environmental outcomes. Iterate based on data.</p>
-          </div>
-        </div>
-        
-        <div class="timeline__item">
-          <div class="timeline__phase">Month 15-18</div>
-          <h4 class="timeline__title">Federation Preparation</h4>
-          <div class="timeline__content">
-            <p>Connect with other mutual credit networks through Credit Commons Protocol. Participate in bioregional economic networks. Document successful patterns for replication by other communities.</p>
-          </div>
+        <div class="rp-layer-arrow">&#9661;</div>
+        <div class="rp-layer rp-layer--enr">
+          <span class="rp-layer__tag">existing &middot; Phase 4 active</span>
+          <h3>ENR Layer</h3>
+          <p>
+            Entropy &middot; Nexus &middot; Revival &middot; Septal Gates &middot; Mycelial Credits &middot;
+            Pricing &middot; DOL&rarr;HIR&rarr;MLIR&rarr;WASM.
+          </p>
         </div>
       </div>
+
+      <p class="rp-footnote">
+        ENR answers <em>how</em>. Melatearn answers <em>what's good</em>. The Republic answers <em>what's law</em>.
+      </p>
     </div>
   </section>
 
-  <!-- Phase 3 Detail -->
-  <section class="container">
+  <!-- Section IV: Plug Points -->
+  <section class="container rp-section">
     <div class="reveal">
-      <div class="section-header" style="text-align: left;">
-        <span class="tag tag--purple">Phase 3</span>
-        <h2 class="mt-md">Economic Transition <span style="color: var(--text-secondary); font-weight: 400;">— 18+ Months</span></h2>
-      </div>
-      
-      <div class="timeline mt-xl">
-        <div class="timeline__item">
-          <div class="timeline__phase">Month 18-24</div>
-          <h4 class="timeline__title">Cooperative Enterprise</h4>
-          <div class="timeline__content">
-            <p>Launch worker-owned businesses using collaborative planning. Implement local production systems. Focus on meeting identified community needs with community-owned solutions.</p>
-          </div>
-        </div>
-        
-        <div class="timeline__item">
-          <div class="timeline__phase">Month 24-30</div>
-          <h4 class="timeline__title">Energy Independence</h4>
-          <div class="timeline__content">
-            <p>Create community-owned renewable energy systems. Deploy IoT sensors for production monitoring. Connect to platforms like IOEN for carbon credit access. Build energy resilience.</p>
-          </div>
-        </div>
-        
-        <div class="timeline__item">
-          <div class="timeline__phase">Month 30-36</div>
-          <h4 class="timeline__title">Bioregional Integration</h4>
-          <div class="timeline__content">
-            <p>Establish bioregional trade networks with neighboring communities. Connect economic flows to ecological health metrics. Create currencies backed by regenerative outcomes.</p>
-          </div>
-        </div>
-        
-        <div class="timeline__item">
-          <div class="timeline__phase">Ongoing</div>
-          <h4 class="timeline__title">Continuous Evolution</h4>
-          <div class="timeline__content">
-            <p>Iterate based on feedback. Share learnings with broader movement. Support new communities starting their journeys. Build toward federation of regenerative economies.</p>
-          </div>
-        </div>
-      </div>
+      <div class="rp-label">&sect; IV &mdash; Where the argument lands in code</div>
+      <h2>Three plug points into existing ENR.</h2>
+
+      <ol class="rp-plugs">
+        <li>
+          <div class="rp-plug-from">Local sensing, global propagation</div>
+          <div class="rp-plug-to">Add S&#7496; &mdash; dignity entropy</div>
+          <p>
+            A fifth dimension alongside network, compute, storage, and
+            temporal. Rises when a node's voice is suppressed or its
+            capability narrowed. Dignity violations become economically
+            expensive, not just morally objectionable.
+          </p>
+        </li>
+        <li>
+          <div class="rp-plug-from">Reciprocity over hierarchy</div>
+          <div class="rp-plug-to">Bound governance hub formation</div>
+          <p>
+            Governance weight grows sublinearly with credit holdings &mdash;
+            quadratic damping. Topology-level answer to Piketty's r &gt; g.
+            Whales can't form because the graph won't let them.
+          </p>
+        </li>
+        <li>
+          <div class="rp-plug-from">Reciprocity in chemistry</div>
+          <div class="rp-plug-to">Fourth septal-gate dimension</div>
+          <p>
+            Adds dignity-violation alongside timeout, credit default, and
+            reputation. Centralization attempts get isolated by the same
+            Woronin-body mechanism that already contains failures.
+          </p>
+        </li>
+      </ol>
     </div>
   </section>
 
-  <!-- Technical Track: PlanetServe Integration -->
-  <section class="container">
+  <!-- Section V: Melatearn AI Layer -->
+  <section class="container rp-section">
     <div class="reveal">
-      <div class="section-header" style="text-align: left;">
-        <span class="tag" style="background: linear-gradient(135deg, var(--glow-cyan), var(--spore-purple));">Technical Track</span>
-        <h2 class="mt-md">PlanetServe Integration <span style="color: var(--text-secondary); font-weight: 400;">— Scaling Infrastructure</span></h2>
+      <div class="rp-label">&sect; V &mdash; AI as exchange chemistry</div>
+      <h2>Where Melatearn does the work no other layer can.</h2>
+      <p class="rp-lede">
+        Decentralization is necessary but not sufficient. The protocol
+        needs values encoded into the exchange rules &mdash; and that is
+        fundamentally an evaluation problem.
+      </p>
+
+      <div class="rp-primitives">
+        <article class="rp-primitive">
+          <div class="rp-primitive__marker">01</div>
+          <h3>Contribution evaluation</h3>
+          <p>A family of evaluator models &mdash; per bioregion, per domain. No single evaluator is canonical. Disagreement is signal, not bug.</p>
+        </article>
+
+        <article class="rp-primitive">
+          <div class="rp-primitive__marker">02</div>
+          <h3>Sybil resistance</h3>
+          <p>Score the coherence of claimed contributions against bioregional sensors, peer attestations, on-chain history. The immune system.</p>
+        </article>
+
+        <article class="rp-primitive">
+          <div class="rp-primitive__marker">03</div>
+          <h3>Septal-gate appeals</h3>
+          <p>A panel of independently trained models reviews isolation decisions. Disagreement triggers polycentric human review. Ostrom at machine speed.</p>
+        </article>
+
+        <article class="rp-primitive">
+          <div class="rp-primitive__marker">04</div>
+          <h3>Eval-as-protocol</h3>
+          <p>Shared eval standards, model audit trails, capability declarations no single node owns. AI governance neither nationalized nor laissez-faire.</p>
+        </article>
       </div>
 
-      <div class="timeline mt-xl">
-        <div class="timeline__item">
-          <div class="timeline__phase">Weeks 1-2</div>
-          <h4 class="timeline__title">Reputation Scoring System</h4>
-          <div class="timeline__content">
-            <p>Implement core reputation data structures with asymmetric punishment. Create NodeReputation with sliding window analysis. Add ReputationStore trait to StateStore. Integrate with scheduler weight calculations for trust-based resource allocation.</p>
-          </div>
-        </div>
+      <p class="rp-footnote">
+        Evaluators run as Spirits on VUDO. Paid in Mycelial Credits. Scores published as hREA events.
+      </p>
+    </div>
+  </section>
 
-        <div class="timeline__item">
-          <div class="timeline__phase">Weeks 3-4</div>
-          <h4 class="timeline__title">Hash-Radix Tree (HR-Tree)</h4>
-          <div class="timeline__content">
-            <p>Implement HR-tree data structure with 8-bit hash fingerprints. Create chunking and hashing algorithms. Add delta synchronization protocol for efficient network updates. Integrate with cluster manager for workload distribution.</p>
-          </div>
-        </div>
+  <!-- Section VI: Constitutional Invariants -->
+  <section class="container rp-section">
+    <div class="reveal">
+      <div class="rp-label">&sect; VI &mdash; Five DOL invariants</div>
+      <h2>The constitution compiles.</h2>
+      <p class="rp-lede">
+        These are not policy documents. They are constraints in the type
+        system, enforced by the DOL&rarr;HIR&rarr;MLIR&rarr;WASM pipeline already
+        validated through <code>add.wasm</code>.
+      </p>
 
-        <div class="timeline__item">
-          <div class="timeline__phase">Weeks 5-6</div>
-          <h4 class="timeline__title">S-IDA Anonymous Communication</h4>
-          <div class="timeline__content">
-            <p>Implement GF(2^8) arithmetic, Rabin's IDA for message splitting, and Shamir's Secret Sharing for key distribution. Create proxy establishment protocol. Integrate with CryptoSaint for anonymous credit transactions.</p>
-          </div>
-        </div>
+      <div class="rp-invariants-grid">
+        <article class="rp-invariant">
+          <h3 class="rp-invariant__name">No-root</h3>
+          <p class="rp-invariant__enforces">No node may exceed MAX_HUB_DEGREE proportional to network size; growth past the threshold auto-triggers septal isolation.</p>
+          <p class="rp-invariant__maps">&rarr; Defeats the iron law of hub formation</p>
+        </article>
 
-        <div class="timeline__item">
-          <div class="timeline__phase">Future</div>
-          <h4 class="timeline__title">BFT Verification Committee</h4>
-          <div class="timeline__content">
-            <p>Integrate Tendermint consensus. Implement challenge prompt generation and perplexity scoring. Create two-phase voting protocol (Pre-Vote → Pre-Commit). Deploy VRF leader election and committee rotation mechanism.</p>
-          </div>
-        </div>
-      </div>
+        <article class="rp-invariant">
+          <h3 class="rp-invariant__name">Dignity-floor</h3>
+          <p class="rp-invariant__enforces">Every node's revival pool share has a non-zero lower bound. Cannot starve a node out of participation.</p>
+          <p class="rp-invariant__maps">&rarr; Ostrom + anti-starvation guarantee</p>
+        </article>
 
-      <div class="mt-lg" style="display: flex; gap: var(--space-md);">
-        <a href="https://arxiv.org/abs/2504.20101" target="_blank" class="btn btn--outline">Research Paper →</a>
-        <a href="technology.html#scaling" class="btn btn--ghost">View Technology Details</a>
+        <article class="rp-invariant">
+          <h3 class="rp-invariant__name">Voice</h3>
+          <p class="rp-invariant__enforces">Governance weight grows sublinearly with credit holdings. Capital cannot purchase unbounded influence.</p>
+          <p class="rp-invariant__maps">&rarr; Topology-level answer to r &gt; g</p>
+        </article>
+
+        <article class="rp-invariant">
+          <h3 class="rp-invariant__name">Polycentric-evaluator</h3>
+          <p class="rp-invariant__enforces">No score from a single evaluator. At least <em>k</em> independent evaluators must agree, or the score escalates to human review.</p>
+          <p class="rp-invariant__maps">&rarr; Multi-model evaluation as polycentricity</p>
+        </article>
+
+        <article class="rp-invariant">
+          <h3 class="rp-invariant__name">Forkability</h3>
+          <p class="rp-invariant__enforces">Any sub-network may fork the protocol while retaining credit history. Exit is always available.</p>
+          <p class="rp-invariant__maps">&rarr; Keeps voice honest</p>
+        </article>
       </div>
     </div>
   </section>
+
+  <!-- Section VII: Phase 5 Deliverables -->
+  <section class="container rp-section">
+    <div class="reveal">
+      <div class="rp-label">&sect; VII &mdash; What ships in 2027</div>
+      <h2>Phase 5 &mdash; <code>phase5-republic-layer.yaml</code></h2>
+
+      <ol class="rp-deliverables">
+        <li class="rp-deliverable">
+          <div class="rp-deliverable__num">01</div>
+          <div>
+            <h3>dol/republic.dol</h3>
+            <p>Encode the five invariants as DOL constraints. Compile to WASM host functions callable by the ENR runtime.</p>
+          </div>
+        </li>
+        <li class="rp-deliverable">
+          <div class="rp-deliverable__num">02</div>
+          <div>
+            <h3>dol/dignity.dol</h3>
+            <p>Add S&#7496; as the fifth entropy dimension. Wire into calculate_transaction_entropy and weighted_entropy_sum.</p>
+          </div>
+        </li>
+        <li class="rp-deliverable">
+          <div class="rp-deliverable__num">03</div>
+          <div>
+            <h3>Melatearn evaluator integration</h3>
+            <p>Define the ContributionEvaluator trait in DOL. Multiple competing implementations registered through capability certificates. Run as Spirits on VUDO.</p>
+          </div>
+        </li>
+        <li class="rp-deliverable">
+          <div class="rp-deliverable__num">04</div>
+          <div>
+            <h3>Septal appeal protocol</h3>
+            <p>Extend SeptalGateManager with appeal(node, evaluator_panel) &rarr; AppealOutcome. Panel disagreement escalates to polycentric human review.</p>
+          </div>
+        </li>
+        <li class="rp-deliverable">
+          <div class="rp-deliverable__num">05</div>
+          <div>
+            <h3>hREA bridge</h3>
+            <p>Every contribution score, septal decision, and revival redistribution becomes a ValueFlows event. Republic operations auditable as resource-event-agent triples.</p>
+          </div>
+        </li>
+      </ol>
+
+      <p class="rp-footnote">
+        Phase 3 complete &middot; Phase 4 active &middot; Phase 5 specified.
+      </p>
+    </div>
+  </section>
+
+  <!-- Section VIII: The Honest Gap -->
+  <section class="container rp-section">
+    <div class="reveal">
+      <div class="rp-label">&sect; VIII &mdash; Why now, not later</div>
+      <h2>The honest gap.</h2>
+
+      <div class="rp-gap-pair">
+        <div class="rp-gap-card rp-gap-card--risk">
+          <div class="rp-gap-pill rp-gap-pill--risk">The risk</div>
+          <h3>Retrofitting is how decentralization dies.</h3>
+          <p>
+            Every previous "decentralized" platform that bolted dignity on
+            later ended up with hubs, capture, and lost autonomy.
+            Tree-shaped solutions creep into network-shaped problems by default.
+          </p>
+        </div>
+        <div class="rp-gap-card rp-gap-card--window">
+          <div class="rp-gap-pill rp-gap-pill--window">The window</div>
+          <h3>Encode it now, while Phase 4 is wiring up.</h3>
+          <p>
+            The mechanisms &mdash; gradients, septal gates, revival pools &mdash; are
+            being implemented this year. Adding the dignity dimension and
+            Republic invariants now costs almost nothing. Adding them in
+            2029 means rebuilding from the ledger up.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       TECHNICAL FOUNDATION — Evidence base
+       ============================================================ -->
 
   <!-- VUDO OS Development Milestones -->
-  <section class="container">
+  <section class="container" id="vudo-milestones">
     <div class="section-header reveal">
-      <span class="tag" style="background: linear-gradient(135deg, var(--glow-cyan), var(--glow-gold));">Development Milestones</span>
+      <span class="tag" style="background: linear-gradient(135deg, var(--glow-cyan), var(--glow-gold));">Technical Foundation</span>
       <h2 class="mt-md">VUDO OS Progress</h2>
       <p>The network is not pipes. It is a <span class="text-gradient">living market</span>.</p>
     </div>
 
-    <!-- Stats -->
     <div class="grid grid--3 stagger-children" style="margin-bottom: var(--space-xl);">
       <div class="card" style="text-align: center;">
         <div style="font-size: 2.5rem; font-weight: 300; color: var(--glow-cyan);">6/7</div>
@@ -338,7 +1182,7 @@
         </div>
         <h4 class="timeline__title">MLIR + WASM Pipeline</h4>
         <div class="timeline__content">
-          <p>DOL -> HIR -> MLIR -> WASM compilation with 50 tests. MLIR lowering, WASM backend, add.wasm validated.</p>
+          <p>DOL &rarr; HIR &rarr; MLIR &rarr; WASM compilation with 50 tests. MLIR lowering, WASM backend, add.wasm validated.</p>
         </div>
       </div>
 
@@ -457,321 +1301,24 @@
     </div>
   </section>
 
-  <!-- NEXUS: Digital Commons Infrastructure Brief -->
-  <section class="container" id="nexus-dib" style="margin-top: var(--space-3xl); padding-top: var(--space-xl); border-top: 1px solid var(--border-subtle);">
-    <div class="section-header reveal">
-      <span class="tag" style="background: linear-gradient(135deg, var(--spore-purple), var(--glow-cyan)); color: #fff;">The Nexus Initiative</span>
-      <h2 class="mt-md" style="color: var(--text-primary);">An Open Letter on <span class="text-gradient">Decentralized Infrastructure</span></h2>
-      <p>A proposal for resilient government services that survive political cycles.</p>
-    </div>
+  <!-- ============================================================
+       CLOSING THESIS
+       ============================================================ -->
 
-    <!-- Social-Ready Letter Format -->
+  <section class="rp-closing">
     <div class="reveal">
-      <div class="evidence-card" style="max-width: 900px; margin: 0 auto;">
-        <div style="font-family: var(--font-display); font-size: var(--text-sm); color: var(--glow-cyan); margin-bottom: var(--space-md);">
-          DECENTRALIZED INFRASTRUCTURE BRIEF — JANUARY 2026
-        </div>
-
-        <div class="prose" style="max-width: none;">
-          <h3 style="font-size: var(--text-2xl); margin-bottom: var(--space-lg); color: var(--text-primary);">
-            "Reform that depends on centralized power inherits the vulnerability of centralized power."
-          </h3>
-
-          <p style="font-size: var(--text-lg); color: var(--text-primary); font-style: italic; border-left: 3px solid var(--glow-gold); padding-left: var(--space-md); margin-bottom: var(--space-lg);">
-            Any solution dependent on a single election cycle inherits a fatal flaw: the next administration can reverse it. We propose a complementary approach—decentralized public infrastructure that delivers citizen-owned services resilient to political oscillation.
-          </p>
-
-          <h4 style="color: var(--glow-cyan); margin-top: var(--space-xl);">The Apollo Parallel</h4>
-          <p>
-            The Apollo program succeeded not because NASA was immune to politics, but because it created capabilities that outlasted any administration. Integrated circuits, satellite communications, and materials science became distributed across the private sector, academia, and international partners.
-          </p>
-          <p style="color: var(--text-primary); font-weight: 500;">
-            The <em>knowledge</em> was decentralized even as the <em>program</em> was centralized. Digital infrastructure requires the same approach.
-          </p>
-
-          <h4 style="color: var(--glow-cyan); margin-top: var(--space-xl);">The Mycelial Alternative</h4>
-          <p>
-            Infrastructure modeled on fungal networks—no central point of control, resources flowing based on need, decisions emerging from the network rather than from above.
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Working Code Status -->
-    <div class="section-header reveal mt-xl" style="text-align: left;">
-      <span class="tag">Working Code</span>
-      <h3 class="mt-md" style="color: var(--text-primary);">Core Technical Components</h3>
-    </div>
-
-    <div class="grid grid--3 stagger-children">
-      <div class="card" style="border-top: 3px solid var(--glow-cyan);">
-        <h4 class="card__title" style="display: flex; align-items: center; gap: 0.5rem;">
-          <span style="width: 10px; height: 10px; background: var(--glow-cyan); border-radius: 50%;"></span>
-          DOL Language
-        </h4>
-        <code style="display: block; font-size: 0.75rem; color: var(--glow-cyan); background: rgba(0,255,136,0.05); padding: 0.5rem; border-radius: 4px; margin-bottom: 0.5rem;">522 tests passing</code>
-        <p class="card__text" style="font-size: 0.875rem;">Programming language where specifications <em>are</em> implementation</p>
-      </div>
-
-      <div class="card" style="border-top: 3px solid var(--glow-cyan);">
-        <h4 class="card__title" style="display: flex; align-items: center; gap: 0.5rem;">
-          <span style="width: 10px; height: 10px; background: var(--glow-cyan); border-radius: 50%;"></span>
-          ENR Credits
-        </h4>
-        <code style="display: block; font-size: 0.75rem; color: var(--glow-cyan); background: rgba(0,255,136,0.05); padding: 0.5rem; border-radius: 4px; margin-bottom: 0.5rem;">Types complete</code>
-        <p class="card__text" style="font-size: 0.875rem;">Credit system with entropy taxation, revival pools, gradient-based allocation</p>
-      </div>
-
-      <div class="card" style="border-top: 3px solid var(--glow-cyan);">
-        <h4 class="card__title" style="display: flex; align-items: center; gap: 0.5rem;">
-          <span style="width: 10px; height: 10px; background: var(--glow-cyan); border-radius: 50%;"></span>
-          P2P Network
-        </h4>
-        <code style="display: block; font-size: 0.75rem; color: var(--glow-cyan); background: rgba(0,255,136,0.05); padding: 0.5rem; border-radius: 4px; margin-bottom: 0.5rem;">Gossipsub operational</code>
-        <p class="card__text" style="font-size: 0.875rem;">Peer discovery, message propagation, distributed consensus</p>
-      </div>
-
-      <div class="card" style="border-top: 3px solid var(--glow-cyan);">
-        <h4 class="card__title" style="display: flex; align-items: center; gap: 0.5rem;">
-          <span style="width: 10px; height: 10px; background: var(--glow-cyan); border-radius: 50%;"></span>
-          VUDO VM
-        </h4>
-        <code style="display: block; font-size: 0.75rem; color: var(--glow-cyan); background: rgba(0,255,136,0.05); padding: 0.5rem; border-radius: 4px; margin-bottom: 0.5rem;">Integration tests passing</code>
-        <p class="card__text" style="font-size: 0.875rem;">Sandboxed execution of citizen-authored applications ("Spirits")</p>
-      </div>
-
-      <div class="card" style="border-top: 3px solid var(--glow-cyan);">
-        <h4 class="card__title" style="display: flex; align-items: center; gap: 0.5rem;">
-          <span style="width: 10px; height: 10px; background: var(--glow-cyan); border-radius: 50%;"></span>
-          Identity
-        </h4>
-        <code style="display: block; font-size: 0.75rem; color: var(--glow-cyan); background: rgba(0,255,136,0.05); padding: 0.5rem; border-radius: 4px; margin-bottom: 0.5rem;">Ed25519 implemented</code>
-        <p class="card__text" style="font-size: 0.875rem;">User-controlled keys, no central identity provider</p>
-      </div>
-
-      <div class="card" style="border-top: 3px solid var(--spore-purple);">
-        <h4 class="card__title" style="display: flex; align-items: center; gap: 0.5rem;">
-          <span style="width: 10px; height: 10px; background: var(--spore-purple); border-radius: 50%;"></span>
-          FedRAMP Ready
-        </h4>
-        <code style="display: block; font-size: 0.75rem; color: var(--spore-purple); background: rgba(176,136,249,0.1); padding: 0.5rem; border-radius: 4px; margin-bottom: 0.5rem;">18-month pathway</code>
-        <p class="card__text" style="font-size: 0.875rem;">Rust-based, reproducible builds, minimal dependencies</p>
-      </div>
-    </div>
-
-    <!-- Deployment Scenarios -->
-    <div class="section-header reveal mt-xl" style="text-align: left;">
-      <span class="tag tag--gold">Deployment Scenarios</span>
-      <h3 class="mt-md" style="color: var(--text-primary);">Three Paths to Adoption</h3>
-    </div>
-
-    <div class="grid grid--3 stagger-children">
-      <div class="card" style="border-left: 4px solid var(--glow-cyan);">
-        <span class="tag" style="margin-bottom: var(--space-sm);">Scenario A</span>
-        <h4 class="card__title">Full Federal Adoption</h4>
-        <p class="card__text">Government operates "Nexus" nodes providing high-availability backbone. Citizens connect through any node. Federal investment accelerates network growth while maintaining citizen sovereignty.</p>
-      </div>
-
-      <div class="card" style="border-left: 4px solid var(--glow-gold);">
-        <span class="tag tag--gold" style="margin-bottom: var(--space-sm);">Scenario B</span>
-        <h4 class="card__title">State/Local Pilot</h4>
-        <p class="card__text">Progressive states deploy regional infrastructure. Demonstrates feasibility, builds constituency for federal adoption. Interoperates with federal systems when/if they modernize.</p>
-      </div>
-
-      <div class="card" style="border-left: 4px solid var(--spore-purple);">
-        <span class="tag tag--purple" style="margin-bottom: var(--space-sm);">Scenario C</span>
-        <h4 class="card__title">Community Commons</h4>
-        <p class="card__text">Libraries, community colleges, and civic organizations operate nodes. Digital public utility emerges bottom-up. Government adoption becomes recognition of existing infrastructure.</p>
-      </div>
-    </div>
-
-    <!-- Social Media Shareable Excerpts -->
-    <div class="section-header reveal mt-xl" style="text-align: left;">
-      <span class="tag" style="background: linear-gradient(135deg, var(--glow-cyan), var(--glow-gold)); color: #fff;">Share the Vision</span>
-      <h3 class="mt-md" style="color: var(--text-primary);">Social-Ready Excerpts</h3>
-      <p style="font-size: var(--text-sm);">Copy these for social media posts</p>
-    </div>
-
-    <div class="grid grid--2 stagger-children">
-      <div class="quote" style="margin: 0;">
-        <p class="quote__text" style="font-size: var(--text-base);">"The network is greater than any node within it. Public digital infrastructure deserves the same resilience as the Apollo program's legacy."</p>
-        <cite class="quote__author">#DigitalCommons #DecentralizedInfrastructure</cite>
-      </div>
-
-      <div class="quote" style="margin: 0;">
-        <p class="quote__text" style="font-size: var(--text-base);">"What if communities owned their digital infrastructure the way they own their roads, libraries, and water systems?"</p>
-        <cite class="quote__author">#PublicCloud #DataSovereignty</cite>
-      </div>
-
-      <div class="quote" style="margin: 0;">
-        <p class="quote__text" style="font-size: var(--text-base);">"Sovereignty by Default: Every interaction begins with user-controlled cryptographic identity. Data residency is determined by the user, not the platform."</p>
-        <cite class="quote__author">#UserSovereignty #PrivacyByDesign</cite>
-      </div>
-
-      <div class="quote" style="margin: 0;">
-        <p class="quote__text" style="font-size: var(--text-base);">"If federal nodes go offline, state nodes continue. If state nodes fail, community nodes persist. If all institutional nodes vanish, peer-to-peer operation continues."</p>
-        <cite class="quote__author">#GracefulDegradation #Resilience</cite>
-      </div>
-    </div>
-
-    <!-- Call to Action -->
-    <div class="reveal mt-xl text-center">
-      <h4 style="margin-bottom: var(--space-md); color: var(--text-primary);">The Collaboration Proposal</h4>
-      <div class="grid grid--3" style="max-width: 900px; margin: 0 auto; gap: var(--space-md);">
-        <div class="card" style="text-align: center; padding: var(--space-md);">
-          <div style="font-size: 2rem; margin-bottom: var(--space-sm);">🔍</div>
-          <strong style="color: var(--glow-cyan);">Technical Review</strong>
-          <p class="card__text" style="font-size: 0.75rem; margin-top: var(--space-xs);">Evaluate architecture against service delivery requirements</p>
-        </div>
-        <div class="card" style="text-align: center; padding: var(--space-md);">
-          <div style="font-size: 2rem; margin-bottom: var(--space-sm);">📜</div>
-          <strong style="color: var(--glow-gold);">Policy Alignment</strong>
-          <p class="card__text" style="font-size: 0.75rem; margin-top: var(--space-xs);">Incorporate decentralized principles into reform recommendations</p>
-        </div>
-        <div class="card" style="text-align: center; padding: var(--space-md);">
-          <div style="font-size: 2rem; margin-bottom: var(--space-sm);">🤝</div>
-          <strong style="color: var(--spore-purple);">Talent Bridge</strong>
-          <p class="card__text" style="font-size: 0.75rem; margin-top: var(--space-xs);">Connect government technologists with contributor community</p>
-        </div>
-      </div>
-
-      <div class="mt-lg" style="display: flex; gap: var(--space-md); justify-content: center;">
-        <a href="https://github.com/univrs" target="_blank" class="btn btn--primary">View on GitHub →</a>
-        <a href="collaborate.html" class="btn btn--outline">Join the Movement</a>
-      </div>
-    </div>
-
-    <!-- Closing Quote -->
-    <div class="reveal mt-xl">
-      <blockquote class="quote" style="max-width: 700px; margin: 0 auto; text-align: center; border-left: none; border-top: 2px solid var(--glow-cyan); border-bottom: 2px solid var(--glow-gold); padding: var(--space-xl);">
-        <p class="quote__text" style="font-style: italic;">"Le réseau est Bondieu"</p>
-        <p style="color: var(--text-secondary); font-size: var(--text-sm); margin-bottom: var(--space-sm);">The network is greater than any node within it.</p>
-        <cite class="quote__author">— Univrs.io, January 2026</cite>
+      <div class="rp-closing__rule"></div>
+      <p class="rp-closing__eyebrow">THE SHARPENED THESIS</p>
+      <blockquote class="rp-closing__quote">
+        The task is not to abolish coordination at scale. It is to
+        redesign its <em>topology</em> &mdash; borrowing from biological
+        networks, commons governance, and protocol-based systems &mdash; so
+        that scale and autonomy are no longer in tension.
       </blockquote>
-    </div>
-  </section>
-
-  <!-- Policy Track -->
-  <section class="container">
-    <div class="section-header reveal">
-      <span class="tag">Parallel Track</span>
-      <h2 class="mt-md">Policy & Advocacy</h2>
-      <p>While building community infrastructure, we simultaneously advocate for systemic change.</p>
-    </div>
-    
-    <div class="grid grid--3 stagger-children">
-      <div class="card">
-        <h4 class="card__title">Research & Analysis</h4>
-        <p class="card__text">
-          Study existing cloud services and government initiatives like FedRAMP. Analyze current laws and policies. 
-          Identify regulatory pathways and challenges. Build evidence base for policy proposals.
-        </p>
-      </div>
-      
-      <div class="card">
-        <h4 class="card__title">Coalition Building</h4>
-        <p class="card__text">
-          Partner with technology advocacy groups and think tanks. Engage grassroots organizations and civil rights groups. 
-          Approach policymakers and legislators who champion digital rights.
-        </p>
-      </div>
-      
-      <div class="card">
-        <h4 class="card__title">Public Engagement</h4>
-        <p class="card__text">
-          Raise awareness through public campaigns. Draft policy proposals and white papers. Demonstrate feasibility 
-          through pilot projects. Build broad-based support for public cloud infrastructure.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Success Factors -->
-  <section class="container container--narrow">
-    <div class="reveal">
-      <h2>Critical Success <span class="text-gradient">Factors</span></h2>
-      <div class="prose mt-lg">
-        <p>
-          Research on commons management reveals that <strong>90%+ of intentional communities fail</strong>. 
-          The difference between success and failure often comes down to design principles, not idealism.
-        </p>
-      </div>
-      
-      <div class="grid grid--2 mt-xl" style="gap: var(--space-lg);">
-        <div class="card" style="border-left: 4px solid var(--glow-cyan);">
-          <h4 class="card__title">✓ What Works</h4>
-          <ul style="color: var(--text-secondary); padding-left: var(--space-md); font-size: var(--text-sm); line-height: 2;">
-            <li>Clear membership boundaries</li>
-            <li>Explicit decision-making processes</li>
-            <li>Proportional benefits to contributions</li>
-            <li>Multiple revenue streams</li>
-            <li>Professional financial management</li>
-            <li>Conflict resolution mechanisms</li>
-            <li>Graduated sanctions for violations</li>
-            <li>Balance idealism with market engagement</li>
-          </ul>
-        </div>
-        
-        <div class="card" style="border-left: 4px solid rgba(255, 100, 100, 0.5);">
-          <h4 class="card__title">✗ Common Failures</h4>
-          <ul style="color: var(--text-secondary); padding-left: var(--space-md); font-size: var(--text-sm); line-height: 2;">
-            <li>Open admission without screening</li>
-            <li>Undefined decision processes</li>
-            <li>Unrealistic economic models</li>
-            <li>Single revenue dependency</li>
-            <li>Amateur financial handling</li>
-            <li>No conflict resolution system</li>
-            <li>All-or-nothing enforcement</li>
-            <li>Ideology over practicality</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Current Status -->
-  <section class="container">
-    <div class="section-header reveal">
-      <h2>Where We Are Now</h2>
-      <p>Transparent about our current stage and what comes next.</p>
-    </div>
-    
-    <div class="reveal">
-      <div class="evidence-card" style="max-width: none;">
-        <div class="grid grid--2" style="gap: var(--space-xl);">
-          <div>
-            <span class="tag">Current Stage</span>
-            <h3 class="mt-md">Foundation & Advocacy</h3>
-            <div class="prose">
-              <p>
-                Univrs.io is currently in the foundation-building phase, combining technology exploration 
-                with policy advocacy. We're developing educational resources, building coalitions, and 
-                piloting tools while advocating for publicly-funded cloud infrastructure.
-              </p>
-              <p>
-                The <a href="https://book.univrs.io/docs/" target="_blank">documentation site</a> contains extensive 
-                technical material on distributed systems, Rust programming, and cloud-native patterns. 
-                This represents genuine investment in understanding the technologies required.
-              </p>
-            </div>
-          </div>
-          <div>
-            <span class="tag tag--gold">What's Needed</span>
-            <h3 class="mt-md">Collaborators & Resources</h3>
-            <div class="prose">
-              <p>
-                Moving from exploration to implementation requires a team: engineers to build, economists 
-                to model, community organizers to deploy, policy advocates to change systems.
-              </p>
-              <p>
-                We're seeking partnerships with aligned organizations, funding to support development, 
-                and pilot communities ready to test regenerative economic tools.
-              </p>
-            </div>
-            <a href="collaborate.html" class="btn btn--primary mt-md">Join Us →</a>
-          </div>
-        </div>
-      </div>
+      <p class="rp-closing__tag">
+        This is what the 22nd Century Republic looks like at the substrate
+        level. It is what Univrs.io builds toward in 2027.
+      </p>
     </div>
   </section>
 
@@ -780,12 +1327,12 @@
     <div class="reveal">
       <h2>Ready to <span class="text-gradient">Contribute</span>?</h2>
       <p class="mt-md" style="font-size: var(--text-lg);">
-        Every journey starts with a single step. Whether you're a developer, economist, 
-        organizer, or advocate—there's a role for you in building regenerative infrastructure.
+        Every journey starts with a single step. Whether you're a developer, economist,
+        organizer, or advocate &mdash; there's a role for you in building regenerative infrastructure.
       </p>
       <div class="hero__cta mt-lg">
-        <a href="collaborate.html" class="btn btn--primary">See How to Help →</a>
-        <a href="resources.html" class="btn btn--outline">Explore Resources</a>
+        <a href="collaborate.html" class="btn btn--primary">See How to Help &rarr;</a>
+        <a href="https://github.com/univrs" target="_blank" class="btn btn--outline">View on GitHub</a>
       </div>
     </div>
   </section>
@@ -798,7 +1345,7 @@
           <div class="footer__logo"><img src="assets/logo.png" alt="Univrs.io" style="width: 24px; height: 24px; vertical-align: middle; margin-right: 8px;">Univrs.io</div>
           <p class="footer__desc">Building regenerative digital infrastructure through mycelial economics. Systems of the people, by the people, for the people.</p>
         </div>
-        
+
         <div>
           <h4 class="footer__title">Learn</h4>
           <ul class="footer__links">
@@ -808,7 +1355,7 @@
             <li><a href="resources.html">Resources</a></li>
           </ul>
         </div>
-        
+
         <div>
           <h4 class="footer__title">Engage</h4>
           <ul class="footer__links">
@@ -817,7 +1364,7 @@
             <li><a href="https://book.univrs.io/docs/" target="_blank">Documentation ↗</a></li>
           </ul>
         </div>
-        
+
         <div>
           <h4 class="footer__title">Ecosystem</h4>
           <ul class="footer__links">
@@ -827,9 +1374,9 @@
           </ul>
         </div>
       </div>
-      
+
       <div class="footer__bottom">
-        <p>© 2025 Univrs.io — Open source, open future</p>
+        <p>&copy; 2026 Univrs.io &mdash; Open source, open future</p>
         <div class="footer__social">
           <a href="https://github.com/univrs/" target="_blank" aria-label="GitHub">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
