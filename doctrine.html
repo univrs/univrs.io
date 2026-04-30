@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="The Two Hands — Why public-funded sovereign cloud needs both Deng Xiaoping's strategy of patience and Elinor Ostrom's architecture of persistence. The Univrs.io doctrine.">
+
+  <title>Doctrine — The Two Hands — Univrs.io</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..900,0..100&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" type="image/png" href="assets/logo.png">
+
+  <style>
+    /* ===== Doctrine page styles ===== */
+    .doctrine-toc {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: var(--space-lg);
+    }
+    .doctrine-toc ol {
+      margin: 0;
+      padding-left: var(--space-lg);
+    }
+    .doctrine-toc li {
+      padding: var(--space-xs) 0;
+    }
+    .doctrine-toc a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .doctrine-toc a:hover {
+      color: var(--glow-cyan);
+      border-bottom-color: var(--glow-cyan-dim);
+    }
+
+    .doctrine-prose {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+    .doctrine-prose h2 {
+      margin-top: var(--space-2xl);
+      margin-bottom: var(--space-md);
+    }
+    .doctrine-prose h3 {
+      margin-top: var(--space-xl);
+      margin-bottom: var(--space-sm);
+      color: var(--glow-cyan);
+    }
+    .doctrine-prose p {
+      margin-bottom: var(--space-md);
+      line-height: 1.75;
+    }
+    .doctrine-prose strong {
+      color: var(--text-primary);
+    }
+
+    .doctrine-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: var(--space-lg) 0;
+      font-size: var(--text-sm);
+    }
+    .doctrine-table th,
+    .doctrine-table td {
+      padding: var(--space-sm) var(--space-md);
+      text-align: left;
+      border-bottom: 1px solid var(--border-subtle);
+      vertical-align: top;
+    }
+    .doctrine-table th {
+      color: var(--glow-cyan);
+      font-weight: 600;
+      border-bottom: 2px solid var(--border-subtle);
+    }
+
+    .doctrine-eight {
+      counter-reset: doctrine-counter;
+    }
+    .doctrine-eight .card {
+      counter-increment: doctrine-counter;
+      position: relative;
+    }
+    .doctrine-eight .card::before {
+      content: counter(doctrine-counter);
+      position: absolute;
+      top: var(--space-md);
+      right: var(--space-md);
+      font-family: var(--font-display);
+      font-size: var(--text-3xl);
+      color: var(--glow-cyan-dim);
+      opacity: 0.4;
+      line-height: 1;
+    }
+
+    .epigraph {
+      font-style: italic;
+      color: var(--text-secondary);
+      margin: var(--space-xl) 0;
+      padding-left: var(--space-lg);
+      border-left: 2px solid var(--glow-cyan-dim);
+    }
+    .epigraph p {
+      margin: var(--space-xs) 0;
+    }
+
+    .engage-anchor {
+      scroll-margin-top: 80px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="nav">
+    <div class="nav__inner">
+      <a href="/" class="nav__logo">
+        <span class="nav__logo-icon"><img src="assets/logo.png" alt="Univrs.io" style="width: 100%; height: 100%; object-fit: contain;"></span>
+        Univrs.io
+      </a>
+
+      <button class="nav__toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <div class="nav__menu">
+        <ul class="nav__links">
+          <li><a href="/" class="nav__link">Home</a></li>
+          <li><a href="vision.html" class="nav__link">Vision</a></li>
+          <li><a href="doctrine.html" class="nav__link active">Doctrine</a></li>
+          <li><a href="technology.html" class="nav__link">Technology</a></li>
+          <li><a href="evidence.html" class="nav__link">Evidence</a></li>
+          <li><a href="roadmap.html" class="nav__link">Roadmap</a></li>
+          <li><a href="collaborate.html" class="nav__link">Collaborate</a></li>
+        </ul>
+      </div>
+
+      <button class="theme-toggle" aria-label="Toggle theme">🌙</button>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero" style="min-height: 60vh;">
+    <div class="hero__content">
+      <p class="hero__tagline">Doctrine</p>
+      <h1 class="hero__title">
+        The <span class="text-gradient">Two Hands</span>
+      </h1>
+      <p class="hero__subtitle">
+        Why public-funded sovereign cloud needs both Deng Xiaoping's strategy of patience and Elinor Ostrom's architecture of persistence.
+      </p>
+    </div>
+  </section>
+
+  <!-- Epigraphs -->
+  <section class="container container--narrow">
+    <div class="epigraph reveal">
+      <p>"Cross the river by feeling for stones."</p>
+      <p>— Deng Xiaoping</p>
+    </div>
+    <div class="epigraph reveal">
+      <p>"There is no panacea."</p>
+      <p>— Elinor Ostrom</p>
+    </div>
+  </section>
+
+  <!-- Table of Contents -->
+  <section class="container container--narrow">
+    <div class="doctrine-toc reveal">
+      <h4 class="card__title" style="margin-bottom: var(--space-sm);">Contents</h4>
+      <ol>
+        <li><a href="#thesis">Thesis</a></li>
+        <li><a href="#why-now">Part I — Why This, Why Now</a></li>
+        <li><a href="#deng">Part II — Deng's Lesson: The Strategy of Patience</a></li>
+        <li><a href="#ostrom">Part III — Ostrom's Lesson: The Architecture of Persistence</a></li>
+        <li><a href="#convergence">Part IV — The Convergence</a></li>
+        <li><a href="#doctrine">Part V — The Doctrine, Plainly Stated</a></li>
+        <li><a href="#engage">Part VI — How to Engage</a></li>
+        <li><a href="#coda">Coda</a></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- Thesis -->
+  <section class="container container--narrow" id="thesis">
+    <div class="reveal">
+      <span class="tag tag--gold">Thesis</span>
+      <h2 class="mt-md">An institutional design problem, not a technology problem</h2>
+      <div class="prose doctrine-prose">
+        <p>
+          Public-funded sovereign cloud is not, at its core, a technology problem. The hardware exists. The protocols exist. The cooperative finance models exist. What does <strong>not</strong> yet exist — and what most attempts have failed to build — is the <strong>institutional substrate</strong> that allows publicly-owned digital infrastructure to grow without being captured, scale without being absorbed, and persist without ossifying.
+        </p>
+        <p>
+          Two thinkers, working from opposite ends of the political spectrum and opposite hemispheres of the planet, converged on the same answer to this problem.
+        </p>
+        <p>
+          <strong>Deng Xiaoping</strong> asked: <em>How do you transform a brittle system without provoking the immune response that destroys reform?</em> His answer: federated experimentation, demonstrated before scaled, dual-track during transition.
+        </p>
+        <p>
+          <strong>Elinor Ostrom</strong> asked: <em>Why do some commons survive for centuries while others collapse within a generation?</em> Her answer: federated governance, designed for self-correction, with rules that match the local context.
+        </p>
+        <p>
+          These are the same answer arrived at by different routes. <strong>Together they form the doctrine for building infrastructure that lasts.</strong>
+        </p>
+        <p>
+          This document articulates that doctrine, and what it asks of those who would fund, build, or support the work.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Part I -->
+  <section class="container container--narrow" id="why-now">
+    <div class="reveal">
+      <span class="tag">Part I</span>
+      <h2 class="mt-md">Why This, Why Now</h2>
+      <div class="prose doctrine-prose">
+        <p>
+          The default trajectory of digital infrastructure over the last twenty years has been clear: capability concentrates, ownership concentrates, dependency deepens. Three companies now host the majority of the world's compute. The public investments that created the underlying technologies — packet switching, the web, public-key cryptography, GPU computing — have been privatized into rent-extracting monopolies.
+        </p>
+        <p>
+          Mariana Mazzucato has documented this pattern across pharmaceuticals, finance, and digital platforms: <strong>public investment creates the value; private actors capture it.</strong> The sovereign cloud question is not philosophical. It is a question of whether the public will continue to pay twice — once to invent the infrastructure, once to rent access to it — or whether we build, this time, an institutional form that lets value remain where it was created.
+        </p>
+        <p>
+          But state-owned cloud has its own failure mode. The historical record of nationalized infrastructure is not encouraging: top-down systems become brittle, sclerotic, and politically captureable in different ways than market systems. A sovereign cloud that is merely <em>state-owned</em> solves one problem and inherits another.
+        </p>
+        <p>
+          <strong>A third path is needed: infrastructure that is publicly-funded, federally-governed, locally-rooted, and constitutionally insulated from absorption.</strong> That third path is what this doctrine describes.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Part II -->
+  <section class="container container--narrow" id="deng">
+    <div class="reveal">
+      <span class="tag tag--gold">Part II</span>
+      <h2 class="mt-md">Deng's Lesson: The Strategy of Patience</h2>
+      <div class="prose doctrine-prose">
+        <p>
+          In 1978, when Deng Xiaoping began the reforms that transformed China, the conventional wisdom held that economic reform required a master plan, executed top-down. Deng rejected this. He understood that the system he was trying to change would generate immune responses to any reform large enough to matter, and that the only way to make reform survive was to make it small enough to be ignored — until it was too successful to reverse.
+        </p>
+        <p>
+          Five elements of Deng's method translate directly to the work of building sovereign infrastructure.
+        </p>
+
+        <h3>1. Crossing the river by feeling for stones</h3>
+        <p>
+          The phrase <em>mōzhe shítou guò hé</em> — to cross the river by feeling for the stones — became Deng's signature methodology. It is a rejection of grand-plan reasoning in favor of empirical iteration. You move forward by testing each step. You do not commit to a destination you cannot yet see clearly.
+        </p>
+        <p>
+          For infrastructure: this means treating each deployment as a stone — a small, defensible, measurable advance — rather than as part of a master plan that demands all-or-nothing commitment.
+        </p>
+
+        <h3>2. Special Economic Zones — geography as experiment</h3>
+        <p>
+          In 1980, Deng established the first four Special Economic Zones at Shenzhen, Zhuhai, Shantou, and Xiamen. These were geographically bounded laboratories where policies forbidden in the rest of China could be tested. Shenzhen, a fishing village of 30,000 in 1980, became a city of 17 million by 2020.
+        </p>
+        <p>
+          The strategic insight: <strong>bounded experimentation reduces political risk while creating proof points.</strong> A failed experiment in a zone does not threaten the larger system. A successful one creates demand for replication. The zone itself becomes a credential.
+        </p>
+        <p>
+          For infrastructure: this argues for selecting bioregional pilot sites — a state, a watershed, a cooperative network — where the full stack can be deployed under conditions favorable enough to succeed, before being asked to compete in hostile territory.
+        </p>
+
+        <h3>3. The Township-Village Enterprises — the unexpected success</h3>
+        <p>
+          The most important strategic lesson of the Deng era is one Deng himself confessed in 1987:
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="container container--narrow">
+    <blockquote class="quote reveal">
+      <p class="quote__text">"The biggest achievement — one which by no means did we anticipate — was the development of township and village enterprises."</p>
+      <cite class="quote__author">— Deng Xiaoping, 1987</cite>
+    </blockquote>
+  </section>
+
+  <section class="container container--narrow">
+    <div class="reveal">
+      <div class="prose doctrine-prose">
+        <p>
+          Township-Village Enterprises (TVEs) were not in the original reform plan. They emerged from rural communities adapting to the dual-track environment, and by 1995 they employed 130 million people and accounted for roughly a quarter of China's GDP. They became the engine of the reform period — and they were unplanned.
+        </p>
+        <p>
+          The lesson is not that planning is useless. The lesson is that <strong>transformative outcomes are usually unplanned, and the role of strategy is to create the conditions in which the unexpected can flourish, then have the discipline to recognize and amplify it when it does.</strong>
+        </p>
+        <p>
+          For infrastructure: this argues against premature commitment to a single dominant use case. The job of the platform is to be useful enough that unexpected applications grow on it; the job of the strategy is to recognize the surprise and make space for it.
+        </p>
+
+        <h3>4. Dual-track — coexistence as transition strategy</h3>
+        <p>
+          Between 1985 and 1992, China operated a dual-track price system: state-set prices and market prices for the same goods, simultaneously. The system was officially temporary. It lasted seven years. By the time market prices fully replaced state prices, the constituency for reversal had evaporated.
+        </p>
+        <p>
+          The principle: <strong>transition does not require replacement.</strong> New systems do not need to defeat old systems; they need to coexist with them long enough that defection becomes individually rational.
+        </p>
+        <p>
+          For infrastructure: sovereign cloud does not need to "beat AWS." It needs to be the better choice for a specific class of workloads, a specific class of organizations, in a specific context — and to remain available when those choosers need it. Dual-track is the operating mode for the next decade.
+        </p>
+
+        <h3>5. The 1992 Southern Tour — momentum is a discipline</h3>
+        <p>
+          By 1991, the reform program was in trouble. Tiananmen had cooled the political climate. Reform momentum had stalled. Deng, then 87 and officially retired, traveled south to the SEZs and made a series of speeches that re-launched the reform era for another decade.
+        </p>
+        <p>
+          The lesson: <strong>strategic patience is not the same as passivity.</strong> There are moments when momentum has to be re-initiated, and recognizing those moments is the work of leadership. Reform that goes quiet for too long is reform that has been defeated.
+        </p>
+        <p>
+          For infrastructure: the work needs visible milestones, visible defenders, and visible re-commitments. Silence, in this domain, is not neutrality.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Part III -->
+  <section class="container container--narrow" id="ostrom">
+    <div class="reveal">
+      <span class="tag tag--purple">Part III</span>
+      <h2 class="mt-md">Ostrom's Lesson: The Architecture of Persistence</h2>
+      <div class="prose doctrine-prose">
+        <p>
+          Elinor Ostrom won the 2009 Nobel Prize in Economics for demolishing one of the most durable myths in economic theory: that common-pool resources are inevitably overused unless privatized or state-controlled. Her field work, conducted across decades and continents — Swiss alpine pastures, Japanese village forests, Maine lobster fisheries, Spanish irrigation systems — found commons that had operated successfully for centuries, sometimes millennia.
+        </p>
+        <p>
+          What distinguished the survivors from the failures was not technology, scale, or wealth. It was <strong>institutional design</strong>. The successful commons all exhibited variations of eight design principles.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="container">
+    <div class="grid grid--2 stagger-children doctrine-eight" style="gap: var(--space-md);">
+      <div class="card">
+        <h4 class="card__title">Clear group boundaries</h4>
+        <p class="card__text">Who is in, who is out, and what is shared must be unambiguous.</p>
+      </div>
+      <div class="card">
+        <h4 class="card__title">Rules matched to local conditions</h4>
+        <p class="card__text">No imported template — rules must fit the resource and the context.</p>
+      </div>
+      <div class="card">
+        <h4 class="card__title">Collective-choice arrangements</h4>
+        <p class="card__text">Those affected by the rules participate in modifying them.</p>
+      </div>
+      <div class="card">
+        <h4 class="card__title">Monitoring</h4>
+        <p class="card__text">Resource conditions and member behavior observed by accountable actors.</p>
+      </div>
+      <div class="card">
+        <h4 class="card__title">Graduated sanctions</h4>
+        <p class="card__text">Rule violations met with proportional, reversible, communally legitimate consequences.</p>
+      </div>
+      <div class="card">
+        <h4 class="card__title">Conflict-resolution mechanisms</h4>
+        <p class="card__text">Cheap, fast, accessible processes for disputes between members.</p>
+      </div>
+      <div class="card">
+        <h4 class="card__title">Right to organize</h4>
+        <p class="card__text">Recognized by higher-level authorities; not contingent on external permission.</p>
+      </div>
+      <div class="card">
+        <h4 class="card__title">Nested enterprises</h4>
+        <p class="card__text">Polycentric, multi-layered governance for systems larger than a single community.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="container container--narrow">
+    <div class="reveal">
+      <div class="prose doctrine-prose">
+        <p>
+          Ostrom found that systems exhibiting these principles persisted across regime changes, technology shifts, and demographic upheavals. Systems that violated even a few of them — typically because reformers, governments, or NGOs imposed "rational" external structures — collapsed within a generation.
+        </p>
+        <p>
+          The 90% failure rate of intentional communities and cooperatives is not a mystery. It is the predictable result of designs that violate Ostrom.
+        </p>
+
+        <h3>What this means for sovereign infrastructure</h3>
+        <p>
+          Ostrom's principles translate directly into the design constraints of sovereign cloud:
+        </p>
+
+        <table class="doctrine-table">
+          <thead>
+            <tr><th>Ostrom Principle</th><th>Infrastructure Implementation</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Clear boundaries</td><td>Verified membership; bioregional identity; reputation as cryptographic credential</td></tr>
+            <tr><td>Locally-matched rules</td><td>Bioregional nodes set their own quotas, schedules, governance — within a federated protocol</td></tr>
+            <tr><td>Collective choice</td><td>Decisions affecting members are made by members; capability certificates encode this</td></tr>
+            <tr><td>Monitoring</td><td>Transparent metrics, public accountability, observable resource flows</td></tr>
+            <tr><td>Graduated sanctions</td><td>Reputation systems with reversible, proportional consequences — not bans-by-default</td></tr>
+            <tr><td>Conflict resolution</td><td>Local-first dispute mechanisms; appeals through nested polycentric review</td></tr>
+            <tr><td>Right to organize</td><td>Constitutional protection from absorption; subsidiarity as default</td></tr>
+            <tr><td>Nested enterprises</td><td>Federation of bioregional nodes, never centralized — the topology <em>is</em> the governance</td></tr>
+          </tbody>
+        </table>
+
+        <p>
+          These are not bullet points. They are the architecture itself. Infrastructure that violates them will fail in the same ways and for the same reasons that 90% of intentional communities have failed: not from technical inadequacy, but from institutional incoherence.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Part IV -->
+  <section class="container container--narrow" id="convergence">
+    <div class="reveal">
+      <span class="tag">Part IV</span>
+      <h2 class="mt-md">The Convergence</h2>
+      <div class="prose doctrine-prose">
+        <p>
+          Deng Xiaoping was a Marxist-Leninist reformer working in a one-party state. Elinor Ostrom was a midwestern American institutional economist working in field interviews. They had nothing in common.
+        </p>
+        <p>
+          Yet their answers to their respective questions converge with unsettling precision.
+        </p>
+
+        <table class="doctrine-table">
+          <thead>
+            <tr><th></th><th>Deng on reform</th><th>Ostrom on persistence</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Method</strong></td><td>Empirical iteration (feeling for stones)</td><td>Empirical observation (field work, not theory)</td></tr>
+            <tr><td><strong>Geography</strong></td><td>Special Economic Zones</td><td>Locally-matched rules</td></tr>
+            <tr><td><strong>Politics</strong></td><td>Bounded experiments first</td><td>Recognized rights to self-organize</td></tr>
+            <tr><td><strong>Scale</strong></td><td>Federated, not centralized</td><td>Nested enterprises (polycentricity)</td></tr>
+            <tr><td><strong>Strategy</strong></td><td>Demonstrate before scaling</td><td>Survival depends on local fit</td></tr>
+            <tr><td><strong>Posture</strong></td><td>Dual-track during transition</td><td>Coexistence with surrounding systems</td></tr>
+          </tbody>
+        </table>
+
+        <p>
+          Both arrive at federation. Both arrive at experimentation. Both arrive at demonstration. Both reject grand plans. Both insist on context.
+        </p>
+        <p>
+          This is not coincidence. It is the shape of any institution that is trying to <strong>survive its own success.</strong> Most reform efforts, most cooperatives, most public institutions die from one of two causes: they fail to grow, or they grow into something they were trying not to become. Deng's strategy and Ostrom's architecture, taken together, are the only known method of avoiding both failure modes simultaneously.
+        </p>
+        <p>
+          This convergence is the Univrs.io doctrine.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Part V -->
+  <section class="container container--narrow" id="doctrine">
+    <div class="reveal">
+      <span class="tag tag--gold">Part V</span>
+      <h2 class="mt-md">The Doctrine, Plainly Stated</h2>
+      <div class="prose doctrine-prose">
+        <p>
+          Public-funded sovereign cloud, designed to last, requires:
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="container">
+    <div class="grid grid--2 stagger-children" style="gap: var(--space-md);">
+      <div class="card">
+        <span class="tag" style="font-size: 10px;">1</span>
+        <h4 class="card__title mt-sm">Bounded demonstrations before general claims</h4>
+        <p class="card__text">No grand launch. No sweeping promises. Each deployment is a stone — a specific workload, a specific community, a specific measurable outcome — that either holds the foot or doesn't. The credibility of the larger project rests entirely on the empirical record of the small ones.</p>
+      </div>
+      <div class="card">
+        <span class="tag" style="font-size: 10px;">2</span>
+        <h4 class="card__title mt-sm">Federation as topology, not slogan</h4>
+        <p class="card__text">Each bioregional node is sovereign in its scope. The protocol federates them; it does not govern them. There is no head office. There is no master version. There is no central kill-switch — and this is a feature, not a flaw.</p>
+      </div>
+      <div class="card">
+        <span class="tag" style="font-size: 10px;">3</span>
+        <h4 class="card__title mt-sm">Subsidiarity as the default</h4>
+        <p class="card__text">Decisions resolve at the most local capable layer. The protocol provides escalation paths; it does not require escalation. A node that can decide locally must be permitted to.</p>
+      </div>
+      <div class="card">
+        <span class="tag" style="font-size: 10px;">4</span>
+        <h4 class="card__title mt-sm">Constitutional protection against absorption</h4>
+        <p class="card__text">Success will attract acquisition offers, integration proposals, and "partnership" overtures designed to capture the network. The structure must encode non-convertibility from the beginning. You cannot retrofit immune systems.</p>
+      </div>
+      <div class="card">
+        <span class="tag" style="font-size: 10px;">5</span>
+        <h4 class="card__title mt-sm">Dual-track coexistence, not replacement</h4>
+        <p class="card__text">The work is to be the better choice for those who can choose, not to defeat the alternatives for those who can't. AWS will continue to exist. Sovereign cloud succeeds by being the obvious answer for the workloads it is designed for.</p>
+      </div>
+      <div class="card">
+        <span class="tag" style="font-size: 10px;">6</span>
+        <h4 class="card__title mt-sm">Reputation as the economic primitive</h4>
+        <p class="card__text">Trust must be cryptographically verifiable, locally legitimate, and proportionally sanctioning. Imported reputation systems (credit scores, social-credit, platform ratings) all violate Ostrom and fail predictably. The reputation layer must be designed in, not bolted on.</p>
+      </div>
+      <div class="card">
+        <span class="tag" style="font-size: 10px;">7</span>
+        <h4 class="card__title mt-sm">Institutionalized self-interrogation</h4>
+        <p class="card__text">Every system that succeeds at scale generates internal pressures toward mission drift. The only known countermeasure is institutionalized critique — adversarial evaluation that the organization cannot dismiss without admitting it is no longer the same organization. The role of the critic must be structural, not personal.</p>
+      </div>
+      <div class="card">
+        <span class="tag" style="font-size: 10px;">8</span>
+        <h4 class="card__title mt-sm">Patience as a strategic discipline</h4>
+        <p class="card__text">The work is generational. Five-year roadmaps are appropriate. Five-year revolutions are not. Funders, builders, and supporters who require near-term victory should be politely declined; the work is not for them.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="container container--narrow">
+    <div class="reveal">
+      <div class="prose doctrine-prose">
+        <p>
+          These eight commitments — four Deng, four Ostrom, in deliberate balance — define what Univrs.io is, and what it is not.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Part VI -->
+  <section class="container container--narrow engage-anchor" id="engage">
+    <div class="reveal">
+      <span class="tag tag--purple">Part VI</span>
+      <h2 class="mt-md">How to Engage</h2>
+      <div class="prose doctrine-prose">
+        <p>
+          Different audiences enter this work through different doors. Each has a coherent role.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="container container--narrow engage-anchor" id="funders">
+    <div class="reveal">
+      <h3 style="color: var(--glow-cyan); margin-top: var(--space-xl);">For foundations and impact investors</h3>
+      <div class="prose doctrine-prose">
+        <p>
+          What we are asking for is <strong>patient capital for institutional design</strong> — not a product launch. The deliverables are not features; they are demonstrated cases of public infrastructure that exhibits Ostromian persistence and Dengian growth dynamics.
+        </p>
+        <p>
+          Concrete asks, in priority order:
+        </p>
+        <ul>
+          <li><strong>Multi-year operating support</strong> for bioregional pilot deployments, with explicit non-convertibility provisions in the grant terms (the funder commits not to acquire the work).</li>
+          <li><strong>Bridge funding</strong> for the period between technical readiness and the first irrefutable demonstration — this is where most efforts of this type die.</li>
+          <li><strong>Convening support</strong> for cross-pilot exchange — the Ostrom field-work model: pilots learn from pilots.</li>
+        </ul>
+        <p>
+          What you should expect to see in return: quantitative outcomes (cost savings, hours of public service delivered, number of organizations served), qualitative outcomes (case studies, testimonials, structural learning), and observable institutional health (governance participation, conflict-resolution event rates, rotational leadership).
+        </p>
+        <p>
+          What you should <em>not</em> expect: hockey-stick growth charts. We are building cooperative-corporation persistence, not platform extraction.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="container container--narrow engage-anchor" id="ventures">
+    <div class="reveal">
+      <h3 style="color: var(--glow-cyan); margin-top: var(--space-xl);">For ventures and procurement partners</h3>
+      <div class="prose doctrine-prose">
+        <p>
+          Sovereign cloud is the obvious choice for workloads where data residency, regulatory accountability, or anti-extraction principles are constraints rather than preferences. If you are a state digital services office, a cooperative finance institution, a public broadcasting entity, a research consortium, or a mission-aligned enterprise looking for infrastructure that will not be your future competitor — the conversation is direct.
+        </p>
+        <p>
+          What we offer: full-stack infrastructure (compute, storage, network, identity, payment) under federated governance, with documented compliance posture, and economic terms designed for long-term partnership rather than vendor lock-in.
+        </p>
+        <p>
+          What we ask: workload commitments long enough to be meaningful (typically 3–5 years), engagement with the federation governance (your operational learnings improve the protocol), and willingness to be a public reference once the work is in flight.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="container container--narrow engage-anchor" id="builders">
+    <div class="reveal">
+      <h3 style="color: var(--glow-cyan); margin-top: var(--space-xl);">For builders</h3>
+      <div class="prose doctrine-prose">
+        <p>
+          The work is structured to admit contributors at multiple skill levels. The technical stack — DOL → Rust → WASM, with capability-based runtime, P2P substrate, and reputation-bearing identity — is unusual; entry requires reading. The governance work is equally unusual; it requires reading of a different kind.
+        </p>
+        <p>
+          Where to start: the <a href="roadmap.html">public roadmap</a>, the <a href="https://github.com/univrs/" target="_blank">open repositories</a>, and the working sessions. We do not have a "good first issue" pipeline because the project is not structured around the assumption that contributors should be funneled through a junior tier. We are structured around the assumption that contributors who understand the work will choose where to contribute.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="container container--narrow engage-anchor" id="supporters">
+    <div class="reveal">
+      <h3 style="color: var(--glow-cyan); margin-top: var(--space-xl);">For supporters and movement allies</h3>
+      <div class="prose doctrine-prose">
+        <p>
+          The most useful thing supporters can do is <strong>make the work legible to communities that need it but do not yet know it exists.</strong> Cooperatives, mutual aid networks, public-interest journalists, civic technologists, bioregional organizers — these are the populations for whom sovereign infrastructure is not abstract but practical.
+        </p>
+        <p>
+          The second most useful thing is <strong>defending the work when it is misread.</strong> Every project of this type is misread, in two predictable directions: as utopian (by people who think nothing new can be built) and as cynical (by people who think any technology project is a Trojan horse for extraction). Both readings are wrong. Articulate the difference.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Coda -->
+  <section class="container container--narrow" id="coda">
+    <div class="reveal">
+      <span class="tag tag--gold">Coda</span>
+      <h2 class="mt-md">The river is now digital</h2>
+      <div class="prose doctrine-prose">
+        <p>
+          Deng Xiaoping died in 1997. Elinor Ostrom died in 2012. Neither lived to see the moment when their lessons converged into doctrine for building digital commons. Neither was thinking about cloud computing when they did the work that informs this document.
+        </p>
+        <p>
+          But the work was always portable. Deng's <em>crossing the river by feeling for stones</em> is not about Chinese economic reform — it is about how anyone moves through unmapped territory. Ostrom's design principles are not about Swiss alpine pastures — they are about how any commons survives its own success.
+        </p>
+        <p>
+          The river is now digital. The stones are real deployments, real organizations, real workloads, real outcomes. The pasture is the public's investment in computational infrastructure, currently being grazed bare by extractive monopolies.
+        </p>
+        <p>
+          There is a way through. It has been mapped before, in different terrain, by people who never met. We are not inventing the strategy. We are translating it.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="container container--narrow">
+    <blockquote class="quote reveal">
+      <p class="quote__text">Development is the hard truth.<br>Ship, measure, iterate.<br>Federate. Persist.</p>
+      <cite class="quote__author">— The Univrs.io Doctrine</cite>
+    </blockquote>
+    <div class="prose doctrine-prose reveal" style="margin-top: var(--space-xl); font-style: italic; color: var(--text-secondary); font-size: var(--text-sm);">
+      <p>
+        This document is open for criticism, refinement, and adoption. It is not a manifesto. It is a working hypothesis, intended to be tested in the only way doctrines of this kind can be tested — by trying them, observing what happens, and revising them.
+      </p>
+      <p>
+        Crossing the river by feeling for stones.
+      </p>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="container container--narrow text-center" style="padding: var(--space-3xl) 0;">
+    <div class="reveal">
+      <h2>Read the <span class="text-gradient">Roadmap</span></h2>
+      <p class="mt-md" style="font-size: var(--text-lg);">
+        See how the doctrine becomes architecture in the Mycelial Republic Stack.
+      </p>
+      <div class="hero__cta mt-lg">
+        <a href="roadmap.html" class="btn btn--primary">View Roadmap →</a>
+        <a href="collaborate.html" class="btn btn--outline">Collaborate</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <div class="footer__logo"><img src="assets/logo.png" alt="Univrs.io" style="width: 24px; height: 24px; vertical-align: middle; margin-right: 8px;">Univrs.io</div>
+          <p class="footer__desc">Building regenerative digital infrastructure through mycelial economics. Systems of the people, by the people, for the people.</p>
+        </div>
+
+        <div>
+          <h4 class="footer__title">Learn</h4>
+          <ul class="footer__links">
+            <li><a href="vision.html">Vision & Mission</a></li>
+            <li><a href="doctrine.html">Doctrine</a></li>
+            <li><a href="technology.html">Technology</a></li>
+            <li><a href="evidence.html">Real-World Evidence</a></li>
+            <li><a href="resources.html">Resources</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer__title">Engage</h4>
+          <ul class="footer__links">
+            <li><a href="roadmap.html">Roadmap</a></li>
+            <li><a href="collaborate.html">Collaborate</a></li>
+            <li><a href="https://book.univrs.io/docs/" target="_blank">Documentation ↗</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer__title">Ecosystem</h4>
+          <ul class="footer__links">
+            <li><a href="https://cryptosaint.io" target="_blank">CryptoSaint.io ↗</a></li>
+            <li><a href="https://holochain.org" target="_blank">Holochain ↗</a></li>
+            <li><a href="https://valueflo.ws" target="_blank">ValueFlows ↗</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <p>© 2026 Univrs.io — Open source, open future</p>
+        <div class="footer__social">
+          <a href="https://github.com/univrs/" target="_blank" aria-label="GitHub">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+          </a>
+          <a href="mailto:ardeshir.org@gmail.com" aria-label="Email">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-11.817l10 8.104 10-8.104v11.817h-20z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
