@@ -1,31 +1,32 @@
 /*
   Univrs.io Design System
-  Aesthetic: Organic Bioluminescence — dark forest floor with mycelial glow
-  Typography: Fraunces (display) + Inter (body) + JetBrains Mono (code)
+  Aesthetic: Univrs gold/black — near-black, warm gold, animated mycelial glow
+  Typography: Cinzel Decorative (display) + Cormorant Garamond (body) + Cinzel (labels) + JetBrains Mono (code)
+  Palette source of truth: css/univrs-design-system.css (shine.univrs.io standard)
 */
 
-@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..900,0..100&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap");
 
 /* ═══════════════════════════════════════════════════════════════
    CSS VARIABLES
    ═══════════════════════════════════════════════════════════════ */
 
 :root {
-    /* Core palette - forest depths */
-    --void: #0a0d0b;
-    --deep-earth: #0f1411;
-    --forest-floor: #141a16;
-    --moss: #1a221d;
-    --bark: #232d27;
+    /* Core palette - near-black (Univrs gold/black) */
+    --void: #080808;
+    --deep-earth: #0f0f0c;
+    --forest-floor: #0c0c0a;
+    --moss: #0f0f0c;
+    --bark: #0c0c0a;
 
-    /* Bioluminescent accents */
-    --glow-cyan: #00ff88;
-    --glow-cyan-dim: #00ff8840;
-    --glow-gold: #ffd700;
-    --glow-gold-dim: #ffd70030;
-    --spore-purple: #b088f9;
-    --mycelium-white: #e8f4ec;
-    --soft-gray: #8a9a8f;
+    /* Gold accents (legacy names kept; values remapped) */
+    --glow-cyan: #e8c25a;
+    --glow-cyan-dim: #e8c25a40;
+    --glow-gold: #f4d77c;
+    --glow-gold-dim: #f4d77c30;
+    --spore-purple: #b9a06c;
+    --mycelium-white: #f3ecd8;
+    --soft-gray: #9a907a;
 
     /* Semantic */
     --text-primary: var(--mycelium-white);
@@ -34,22 +35,23 @@
     --bg-primary: var(--void);
     --bg-secondary: var(--deep-earth);
     --bg-card: var(--forest-floor);
-    --border-subtle: #2a3a30;
+    --border-subtle: rgba(232, 194, 90, 0.22);
 
     /* Typography scale */
-    --font-display: "Fraunces", "Iowan Old Style", Georgia, serif;
-    --font-body: "Inter", system-ui, sans-serif;
+    --font-display: "Cinzel Decorative", "Cinzel", serif;
+    --font-body: "Cormorant Garamond", "Iowan Old Style", Garamond, serif;
+    --font-label: "Cinzel", "Cormorant Garamond", serif;
     --font-mono: "JetBrains Mono", monospace;
 
     --text-xs: 0.75rem;
     --text-sm: 0.875rem;
     --text-base: 1.125rem;
-    --text-lg: 1.25rem;
-    --text-xl: 1.5rem;
-    --text-2xl: 2rem;
-    --text-3xl: 2.5rem;
-    --text-4xl: 3.5rem;
-    --text-5xl: 5rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.25rem;
+    --text-2xl: 1.5rem;
+    --text-3xl: 1.9rem;
+    --text-4xl: 2.4rem;
+    --text-5xl: 3.2rem;
 
     /* Spacing */
     --space-xs: 0.5rem;
@@ -78,23 +80,44 @@
     --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.4);
 }
 
-/* Light theme override */
+/* Light theme — warm paper with deep gold accents (light counterpart
+   of the canonical gold/black system, mirroring ardeshir.io) */
 [data-theme="light"] {
-    --void: #f8faf9;
-    --deep-earth: #f0f4f2;
-    --forest-floor: #e8eeeb;
-    --moss: #dce5e0;
-    --bark: #c8d4cd;
+    --void: #faf8f0;
+    --deep-earth: #ffffff;
+    --forest-floor: #f4efe2;
+    --moss: #f4efe2;
+    --bark: #ece5d3;
 
-    --glow-cyan: #047857;
-    --glow-cyan-dim: #04785730;
-    --glow-gold: #b8960a;
-    --spore-purple: #7c4dbd;
-    --mycelium-white: #1a221d;
-    --soft-gray: #5a6a5f;
+    --glow-cyan: #7a6a32;
+    --glow-cyan-dim: rgba(122, 106, 50, 0.15);
+    --glow-gold: #b9a06c;
+    --glow-gold-dim: rgba(185, 160, 108, 0.2);
+    --spore-purple: #7a6a32;
+    --mycelium-white: #221d12;
+    --soft-gray: #6b6353;
 
-    --border-subtle: #c8d4cd;
+    --border-subtle: rgba(122, 106, 50, 0.3);
     --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.08);
+
+    /* Retint the imported design-system layer */
+    --bg: #faf8f0;
+    --bg-soft: #f4efe2;
+    --bg-card: #ffffff;
+    --gold: #7a6a32;
+    --gold-bright: #b9a06c;
+    --gold-dim: #9a8650;
+    --gold-dark: #5c4f26;
+    --text: #221d12;
+    --text-dim: #4a4232;
+    --text-muted: #6b6353;
+    --border: rgba(122, 106, 50, 0.3);
+    --border-dim: rgba(122, 106, 50, 0.12);
+}
+
+[data-theme="light"] .grain-overlay,
+[data-theme="light"] .vignette {
+    display: none;
 }
 
 /* ═══════════════════════════════════════════════════════════════
@@ -145,7 +168,7 @@ body::before {
         ),
         radial-gradient(
             ellipse 50% 30% at 50% 80%,
-            rgba(176, 136, 249, 0.1) 0%,
+            rgba(185, 160, 108, 0.1) 0%,
             transparent 50%
         );
     pointer-events: none;
@@ -175,9 +198,9 @@ h4,
 h5,
 h6 {
     font-family: var(--font-display);
-    font-weight: 300;
+    font-weight: 400;
     line-height: 1.2;
-    letter-spacing: -0.02em;
+    letter-spacing: 0;
     color: var(--text-primary);
 }
 
@@ -288,13 +311,13 @@ section {
 }
 
 .nav.scrolled {
-    background: rgba(10, 13, 11, 0.95);
+    background: rgba(8, 8, 8, 0.95);
     backdrop-filter: blur(20px);
     border-bottom: 1px solid var(--border-subtle);
 }
 
 [data-theme="light"] .nav.scrolled {
-    background: rgba(248, 250, 249, 0.95);
+    background: rgba(250, 248, 240, 0.95);
 }
 
 .nav__inner {
@@ -326,6 +349,11 @@ section {
     overflow: hidden;
 }
 
+.nav__logo-icon img {
+    animation: spin 220s linear infinite;
+    filter: drop-shadow(0 0 6px rgba(232, 194, 90, 0.35));
+}
+
 .nav__links {
     display: flex;
     align-items: center;
@@ -334,7 +362,7 @@ section {
 }
 
 .nav__link {
-    font-family: var(--font-display);
+    font-family: var(--font-label);
     font-size: var(--text-sm);
     font-weight: 500;
     color: var(--text-secondary);
@@ -462,7 +490,7 @@ section {
 }
 
 .hero__tagline {
-    font-family: var(--font-display);
+    font-family: var(--font-label);
     font-size: var(--text-sm);
     font-weight: 400;
     text-transform: uppercase;
@@ -511,7 +539,7 @@ section {
    ═══════════════════════════════════════════════════════════════ */
 
 .btn {
-    font-family: var(--font-display);
+    font-family: var(--font-label);
     font-size: var(--text-sm);
     font-weight: 400;
     text-transform: uppercase;
@@ -527,7 +555,7 @@ section {
 }
 
 .btn--primary {
-    background: linear-gradient(135deg, var(--glow-cyan), #00b8a0);
+    background: linear-gradient(135deg, var(--glow-cyan), #b9a06c);
     color: var(--void);
     box-shadow: var(--glow-sm);
 }
@@ -781,7 +809,7 @@ section {
 }
 
 .timeline__phase {
-    font-family: var(--font-display);
+    font-family: var(--font-label);
     font-size: var(--text-sm);
     font-weight: 400;
     text-transform: uppercase;
@@ -936,7 +964,7 @@ section {
 }
 
 .quote__author {
-    font-family: var(--font-display);
+    font-family: var(--font-label);
     font-size: var(--text-sm);
     color: var(--text-accent);
     font-style: normal;
@@ -977,7 +1005,7 @@ section {
 }
 
 .footer__title {
-    font-family: var(--font-display);
+    font-family: var(--font-label);
     font-size: var(--text-sm);
     font-weight: 400;
     text-transform: uppercase;
@@ -1224,7 +1252,7 @@ section {
 /* Tag / Badge */
 .tag {
     display: inline-block;
-    font-family: var(--font-display);
+    font-family: var(--font-label);
     font-size: var(--text-xs);
     font-weight: 400;
     text-transform: uppercase;
@@ -1241,6 +1269,6 @@ section {
 }
 
 .tag--purple {
-    background: rgba(176, 136, 249, 0.2);
+    background: rgba(185, 160, 108, 0.2);
     color: var(--spore-purple);
 }

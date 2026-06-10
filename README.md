@@ -113,7 +113,7 @@ MIT License — See [LICENSE](LICENSE) for details.
 
 ## 📧 Contact
 
-- **Email:** ardeshir.org@gmail.com
+- **Email:** ardeshir@sepahsalar.org
 - **GitHub:** [@univrs](https://github.com/univrs)
 
 ---
