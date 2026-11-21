@@ -887,7 +887,7 @@
           <h3>ENR Layer</h3>
           <p>
             Entropy &middot; Nexus &middot; Revival &middot; Septal Gates &middot; Mycelial Credits &middot;
-            Pricing &middot; DOL&rarr;HIR&rarr;MLIR&rarr;WASM.
+            Pricing &middot; DOL&rarr;WASM.
           </p>
         </div>
       </div>
@@ -984,11 +984,12 @@
   <section class="container rp-section">
     <div class="reveal">
       <div class="rp-label">&sect; VI &mdash; Five DOL invariants</div>
-      <h2>The constitution compiles.</h2>
+      <h2>The constitution will compile.</h2>
       <p class="rp-lede">
-        These are not policy documents. They are constraints in the type
-        system, enforced by the DOL&rarr;HIR&rarr;MLIR&rarr;WASM pipeline already
-        validated through <code>add.wasm</code>.
+        These are not policy documents. They are meant to become constraints
+        enforced by DOL. Planned &mdash; not implemented: the DOL compiler does
+        not yet enforce type or constraint rules, and encoding these invariants
+        (<code>dol/republic.dol</code>) is a Phase 5 deliverable below.
       </p>
 
       <div class="rp-invariants-grid">
@@ -1182,9 +1183,9 @@
           <span style="width: 10px; height: 10px; background: var(--glow-cyan); border-radius: 50%;"></span>
           Phase 3
         </div>
-        <h4 class="timeline__title">MLIR + WASM Pipeline</h4>
+        <h4 class="timeline__title">DOL &rarr; WASM Pipeline</h4>
         <div class="timeline__content">
-          <p>DOL &rarr; HIR &rarr; MLIR &rarr; WASM compilation with 50 tests. MLIR lowering, WASM backend, add.wasm validated.</p>
+          <p>DOL compiles directly from the AST to WASM (no MLIR stage). Shipped in DOL 0.8.2: DOL-compiled Spirits can call the VUDO VM's 15 host functions and run in the VM.</p>
         </div>
       </div>
 
@@ -1280,10 +1281,10 @@
     </div>
 
     <div class="grid grid--2 stagger-children">
-      <a href="https://github.com/univrs/univrs-dol" target="_blank" class="card" style="text-decoration: none; display: flex; align-items: center; gap: 1rem;">
+      <a href="https://github.com/univrs/dol" target="_blank" class="card" style="text-decoration: none; display: flex; align-items: center; gap: 1rem;">
         <span style="width: 10px; height: 10px; background: var(--glow-cyan); border-radius: 50%;"></span>
         <code style="flex: 1; color: var(--text-primary);">univrs-dol</code>
-        <span style="font-size: 0.75rem; color: var(--glow-cyan);">454 tests</span>
+        <span style="font-size: 0.75rem; color: var(--glow-cyan);">2,183 tests</span>
       </a>
       <a href="https://github.com/univrs/univrs-vudo" target="_blank" class="card" style="text-decoration: none; display: flex; align-items: center; gap: 1rem;">
         <span style="width: 10px; height: 10px; background: var(--glow-cyan); border-radius: 50%;"></span>
