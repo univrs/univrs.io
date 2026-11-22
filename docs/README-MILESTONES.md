@@ -58,7 +58,7 @@ Phase 4b ████████░░░░░░░░░░░░  ENR Econo
 
 | Repo | Status |
 |------|--------|
-| [dol](https://github.com/univrs/dol) | ![](https://img.shields.io/badge/2183-tests-00ff88) |
+| [dol](https://github.com/univrs/dol) | ![](https://img.shields.io/badge/2512-tests-00ff88) |
 | [univrs-vudo](https://github.com/univrs/univrs-vudo) | ![](https://img.shields.io/badge/402-tests-00ff88) |
 | [univrs-enr](https://github.com/univrs/univrs-enr) | ![](https://img.shields.io/badge/active-yellow) |
 | [univrs-network](https://github.com/univrs/univrs-network) | ![](https://img.shields.io/badge/pending-gray) |
