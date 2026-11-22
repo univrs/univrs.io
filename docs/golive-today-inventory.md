@@ -67,7 +67,7 @@
 
 ```
 🔗 DOL Language: github.com/univrs/dol
-   "522 tests. Self-hosting compiler. The language of liberation."
+   "2,512 tests. Compiles to WebAssembly. The language of liberation."
 
 🔗 P2P Network: github.com/univrs/network  
    "Mycelial P2P Bootstrap. Gossipsub. Peer discovery. Working code."

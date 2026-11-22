@@ -11,7 +11,7 @@ Phase 1  ████████████████████  Parser + 
 Phase 2a ████████████████████  HIR v0.4.0         ✅ 466 tests
 Phase 2b ████████████████████  VUDO VM            ✅ 402 tests
 Phase 2c ████████████████████  Spirit Runtime     ✅ 50 tests
-Phase 3  ████████████████████  MLIR + WASM        ✅ 50 tests
+Phase 3  ████████████████████  DOL → WASM         ✅ dol 0.8.2 (direct backend, no MLIR)
 Phase 4a ████████████████████  Hyphal Network     ✅ 38 tests
 Phase 4b ████████░░░░░░░░░░░░  ENR Economics      🔄 Active
 ```
@@ -58,7 +58,7 @@ Phase 4b ████████░░░░░░░░░░░░  ENR Econo
 
 | Repo | Status |
 |------|--------|
-| [univrs-dol](https://github.com/univrs/univrs-dol) | ![](https://img.shields.io/badge/454-tests-00ff88) |
+| [dol](https://github.com/univrs/dol) | ![](https://img.shields.io/badge/2512-tests-00ff88) |
 | [univrs-vudo](https://github.com/univrs/univrs-vudo) | ![](https://img.shields.io/badge/402-tests-00ff88) |
 | [univrs-enr](https://github.com/univrs/univrs-enr) | ![](https://img.shields.io/badge/active-yellow) |
 | [univrs-network](https://github.com/univrs/univrs-network) | ![](https://img.shields.io/badge/pending-gray) |

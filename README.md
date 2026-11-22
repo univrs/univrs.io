@@ -32,7 +32,7 @@ univrs-site/
 ├── technology.html   # Tech stack (Holochain, hREA, Cyclos...)
 ├── evidence.html     # Real-world examples (Sardex, Mondragon, WIR)
 ├── roadmap.html      # Implementation phases
-├── collaborate.html  # How to contribute
+├── collaborate.html  # Ways to take part (non-code)
 ├── resources.html    # Books, tools, organizations
 ├── css/
 │   └── styles.css    # Design system
@@ -82,23 +82,9 @@ python -m http.server 8000
 - Mycelial network canvas animation
 - Inspired by forest floor with glowing accents
 
-## 🤝 Contributing
+## Contributing
 
-We welcome contributions! See [collaborate.html](https://univrs.io/collaborate.html) for ways to help:
-
-- **Technical Development** — Rust, Holochain, distributed systems
-- **Economic Modeling** — Research, analysis, game theory
-- **Community Organizing** — Pilot deployments, facilitation
-- **Policy & Advocacy** — Government relations, coalition building
-
-### Quick Start
-
-1. Fork the repo
-2. Create a feature branch (`git checkout -b feature/amazing-improvement`)
-3. Make your changes
-4. Commit (`git commit -m 'Add amazing improvement'`)
-5. Push (`git push origin feature/amazing-improvement`)
-6. Open a Pull Request
+This project is not accepting external contributions or pull requests.
 
 ## 📚 Related Projects
 

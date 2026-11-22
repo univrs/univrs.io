@@ -27,7 +27,7 @@ We've read your manifesto. We share your diagnosis. We've been building the cure
 While you've been preparing policy, we've been shipping code:
 
 🔗 **DOL** — A programming language where specification *is* implementation  
-*522 tests passing. Self-hosting compiler. Open source.*
+*DOL 0.8.2: 2,512 tests passing. Compiles to WebAssembly. Open source.*
 
 🔗 **ENR** — Economic primitives for regenerative systems  
 *Entropy taxation. Revival pools. Resource gradients.*
@@ -112,7 +112,7 @@ We've been building the alternative. 🧵
 
 2/ While you've been preparing policy, we've shipped code:
 
-• DOL: 522 tests. Self-hosting compiler.
+• DOL: 2,512 tests. Compiles to WebAssembly.
 • Network: P2P mesh with no off switch.
 • ENR: Economic primitives for regenerative systems.
 • VUDO: Sandboxed execution for citizen apps.
